@@ -7,3 +7,11 @@ npx hexo g
 npx hexo s
 
 ```
+
+```cmd
+<!-- git submodule -->
+子模块： frontend/themes/particlex
+git submodule init 初始化子模块
+git submodule update 更新子模块
+git submodule foreach git pull 拉取所有子模块
+```
