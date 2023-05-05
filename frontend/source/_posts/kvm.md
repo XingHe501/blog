@@ -1,9 +1,9 @@
 ---
 title: Linux 安装KVM
-tags: KVM
 date: 2023-05-04 19:05:56
+tags: kvm
 categories: Linux
-description: "..."
+description: "在linux系统安装KVM"
 ---
 
 # 安装kvm 步骤

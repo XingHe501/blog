@@ -5,7 +5,7 @@
 # Site
 title: WorldPeace
 subtitle: ''
-description: ''
+description: '沉沦 坠落'
 keywords:
 author: XingHe
 language: en
@@ -13,8 +13,8 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
-permalink: :year/:month/:day/:title/
+url: https://xinghe501.github.io
+permalink: /:year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -106,7 +106,10 @@ theme: particlex
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+    type: git
+    repo: git@github.com:XingHe501/XingHe501.github.io.git
+    branch: main
+    message:
 
 # 禁用年度月度归档
 archive_generator:

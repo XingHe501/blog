@@ -6,6 +6,9 @@ npx hexo cl
 npx hexo g
 npx hexo s
 
+<!-- 部署到Github Pages -->
+npx hexo d -g
+
 ```
 
 ```cmd
