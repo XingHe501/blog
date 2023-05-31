@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>process_flag(trap_exit, true) | WorldPeace</title>
+        <meta name="author" content="XingHe" />
+        <meta name="description" content="沉沦 坠落" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/favicon.png" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.staticfile.org/waline/2.14.8/waline.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline.min.css" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline-meta.min.css" />
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <div id="desktop-menu">
+        <a class="title" href="/">
+            <span>WORLDPEACE</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;WORLDPEACE</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </div>
+</nav>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <transition name="into">
+                <div id="main" v-show="!loading">
+                    <div class="article">
+    <div>
+        <h1>process_flag(trap_exit, true)</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/5/5
+        </span>
+        
+        <span class="category">
+            <a href="/categories/erlang/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                erlang
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/gen-server/" style="color: #ff7d73">gen_server</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="对erlang中process-flag-trap-exit-true-的解释"><a href="#对erlang中process-flag-trap-exit-true-的解释" class="headerlink" title="对erlang中process_flag(trap_exit, true)的解释"></a><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/6720472/erlang-and-process-flagtrap-exit-true">对erlang中process_flag(trap_exit, true)的解释</a></h1><p>文档解释：</p>
+<blockquote>
+<h3 id="process-flag-Flag-trap-exit-Boolean-gt-OldBoolean"><a href="#process-flag-Flag-trap-exit-Boolean-gt-OldBoolean" class="headerlink" title="process_flag(Flag :: trap_exit, Boolean) -&gt;  OldBoolean"></a>process_flag(Flag :: trap_exit, Boolean) -&gt;  <code>OldBoolean</code></h3><blockquote>
+<p>When <code>trap_exit</code> is set to <code>true</code>, exit signals arriving to a process are converted to <code>&#123;&#39;EXIT&#39;, From, Reason&#125;</code> messages, which can be received as ordinary messages. If <code>trap_exit</code> is set to <code>false</code>, the process exits if it receives an exit signal other than <code>normal</code> and the exit signal is propagated to its linked processes. Application processes are normally not to trap exits.</p>
+<p>Returns the old value of the flag.</p>
+</blockquote>
+</blockquote>
+<ol>
+<li><p>如果不关心子进程的状态</p>
+<pre><code class="erlang">spwan(...)
+</code></pre>
+</li>
+<li><p>如果子进程崩溃，我也随之崩溃</p>
+<pre><code class="erlang">spawn_link(...)
+</code></pre>
+</li>
+<li><p>如果子进程正常终止 或 非正常终止，我想要捕获退出的消息</p>
+<pre><code class="erlang">process_flag(trap_exit, true),
+spawn_link(...)
+</code></pre>
+</li>
+</ol>
+<p>Please see this example and try different values (inverse with 2 or 0 to provoke an exception, and using trap_exit or not):</p>
+<pre><code class="erlang">-module(play).
+-compile(export_all).
+
+start() -&gt;
+    process_flag(trap_exit, true),
+    spawn_link(?MODULE, inverse, [2]),
+    loop().
+
+loop() -&gt;
+    receive
+        Msg -&gt; io:format(&quot;~p~n&quot;, [Msg])
+    end,
+    loop().
+
+inverse(N) -&gt; 1/N.
+</code></pre>
+<pre><code class="erlang">&#123;Info, CommentL&#125; =
+    case lists:keyfind(?E_g_statue_type_power, #s_statue_info.type, AllInfo) of
+      false -&gt;
+        &#123;?DB_INSERT_RECORD_INC(s_statue_info, #s_statue_info&#123;type = ?E_g_statue_type_pvp, update_ts = TS&#125;), []&#125;;
+      OldInfo -&gt;
+        OldCommentL = ?DB_SELECT_RECORDS(s_statue_comment, &quot;statue_info&quot;, OldInfo#s_statue_info.guid),
+        case is_update(OldInfo) of
+          true -&gt;
+            case get_new_power_statue_info() of
+              undefined -&gt;
+                NewInfo = OldInfo#s_statue_info&#123;update_ts = TS&#125;,
+                ?DB_UPDATE_RECORD(s_statue_info, OldInfo, NewInfo),
+                &#123;NewInfo, OldCommentL&#125;;
+
+              StatueInfo when StatueInfo#s_statue_info.player_id == OldInfo#s_statue_info.player_id -&gt;
+                &#123;OldInfo, OldCommentL&#125;;
+
+              StatueInfo -&gt;
+                ?DB_DELETE_RECORDS(s_statue_comment, &quot;statue_info&quot;, OldInfo#s_statue_info.guid),
+                ?DB_DELETE_RECORD(s_statue_info, OldInfo),
+                &#123;StatueInfo, []&#125;
+            end;
+          false -&gt;
+            &#123;OldInfo, OldCommentL&#125;
+        end,
+        ok
+    end,
+  PowerStatue = #statue&#123;type = ?E_g_statue_type_power, player_id = Info#s_statue_info.player_id, statue_info = Info, comment_list = CommentL&#125;,
+  ArenaStatue = 
+                end,
+</code></pre>
+
+    </div>
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="waline-container"></div>
+    </div>
+    
+    
+    
+</div>
+
+                    <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 WorldPeace
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;XingHe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+                </div>
+            </transition>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+<script>
+    Waline.init({
+        el: "#waline-container",
+        serverURL: "https://my-blog-4448youd2-xinghe501.vercel.app/",
+        commentCount: true,
+        pageview: false,
+        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
+        meta: "nick,mail,link".split(","),
+        requiredMeta: "nick".split(","),
+        lang: "zh-CN",
+        wordLimit: 0,
+        pageSize: "10",
+        login: "enable",
+        
+        locale: {},
+        
+    });
+</script>
+
+
+
+        
+    </body>
+</html>

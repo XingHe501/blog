@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>在ParticleX上使用Waline | WorldPeace</title>
+        <meta name="author" content="XingHe" />
+        <meta name="description" content="沉沦 坠落" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/favicon.png" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.staticfile.org/waline/2.14.8/waline.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline.min.css" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline-meta.min.css" />
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <div id="desktop-menu">
+        <a class="title" href="/">
+            <span>WORLDPEACE</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;WORLDPEACE</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </div>
+</nav>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <transition name="into">
+                <div id="main" v-show="!loading">
+                    <div class="article">
+    <div>
+        <h1>在ParticleX上使用Waline</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/5/8
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E6%95%99%E7%A8%8B/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                教程
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Netlify/" style="color: #ffa2c4">Netlify</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Vercel/" style="color: #ffa2c4">Vercel</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/ParticleX/" style="color: #03a9f4">ParticleX</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Waline/" style="color: #00bcd4">Waline</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E8%AF%84%E8%AE%BA/" style="color: #00a596">评论</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>看了一些部署Waline的文档，写的感觉都不太全面</p>
+<span id="more"></span>
+
+<h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h1><p><strong>P.S. Vercel和Netlify选择其一即可，Netlify不需要代理就可访问，所以个人更向于Netlify。当然最好的办法还是<a target="_blank" rel="noopener" href="https://lisenhui.cn/blog/use-custom-domain-active-vercel-waline.html">通过自定义域名来激活Waline的服务</a></strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://waline.js.org/">Waline官网</a><br><a target="_blank" rel="noopener" href="https://github.com/walinejs/waline">Waline仓库地址</a></p>
+</blockquote>
+<p>可以跟着官方的教程走，也可以很快的搭建好</p>
+<h1 id="1-部署LeanCloud"><a href="#1-部署LeanCloud" class="headerlink" title="1. 部署LeanCloud"></a>1. 部署LeanCloud</h1><ol>
+<li><p><a target="_blank" rel="noopener" href="https://console.leancloud.app/login">登录</a>或者<a target="_blank" rel="noopener" href="https://console.leancloud.app/register">注册</a> <code>LeanCloud 国际版</code> 并进入 <a target="_blank" rel="noopener" href="https://console.leancloud.app/apps">控制台</a></p>
+</li>
+<li><p>点击左上角<code>创建应用</code>，输入一个自己喜欢的名字并选择免费的<code>开发版</code></p>
+</li>
+<li><p>点击刚刚创建的应用，选择左下角的 <code>设置</code> &gt; <code>应用凭证</code>。你可以看到你的 <code>APP ID</code>, <code>APP Key</code> 和 <code>Master Key</code>。请记录它们，以便后续使用。</p>
+</li>
+</ol>
+<h1 id="2-部署Waline"><a href="#2-部署Waline" class="headerlink" title="2. 部署Waline"></a>2. 部署Waline</h1><h2 id="2-1-Vercel-部署"><a href="#2-1-Vercel-部署" class="headerlink" title="2.1 Vercel 部署"></a>2.1 Vercel 部署</h2><p><a target="_blank" rel="noopener" href="https://vercel.com/new/clone?repository-url=https://github.com/walinejs/waline/tree/main/example"><img src="https://vercel.com/button#pic_center" alt="Vercel"></a></p>
+<ol>
+<li><p>点击上方按钮，跳转至 Vercel 进行 Server 端部署。</p>
+<blockquote>
+<p>如果你未登录的话，Vercel 会让你注册或登录，请使用 GitHub 账户进行快捷登录。</p>
+</blockquote>
+</li>
+<li><p>在右侧<code>Repository Name</code>输入一个你喜欢的 Vercel 项目名称并点击 <code>Create</code> 继续:</p>
+</li>
+<li><p>此时 Vercel 会基于 Waline 模板帮助你新建并初始化仓库，仓库名为你之前输入的项目名。</p>
+<p>一两分钟后，满屏的烟花会庆祝你部署成功。此时点击 <code>Go to Dashboard</code> 可以跳转到应用的控制台。</p>
+</li>
+<li><p>点击顶部的 <code>Settings</code> - <code>Environment Variables</code> 进入环境变量配置页，并配置三个环境变量 <code>LEAN_ID</code>, <code>LEAN_KEY</code> 和 <code>LEAN_MASTER_KEY</code> 。它们的值分别对应上一步在 LeanCloud 中获得的 <code>APP ID</code>, <code>APP KEY</code>, <code>Master Key</code>。</p>
+<p><img src="/images/vercel-2.png" alt="设置环境变量"></p>
+</li>
+<li><p>环境变量配置完成之后点击顶部的 <code>Deployments</code> 点击顶部最新的一次部署右侧的 <code>Redeploy</code> 按钮进行重新部署。该步骤是为了让刚才设置的环境变量生效。</p>
+<p><img src="/images/vercel-3.png" alt="redeploy"></p>
+</li>
+<li><p>此时会跳转到 <code>Overview</code> 界面开始部署，等待片刻后 <code>STATUS</code> 会变成 <code>Ready</code>。此时请点击 <code>Visit</code> ，即可跳转到部署好的网站地址，此地址即为你的服务端地址。</p>
+<p><img src="/images/vercel-4.png" alt="redeploy success"></p>
+</li>
+</ol>
+<h2 id="2-2-在Netlify上部署Waline"><a href="#2-2-在Netlify上部署Waline" class="headerlink" title="2.2 在Netlify上部署Waline"></a>2.2 在Netlify上部署Waline</h2><pre><code>[官方教程](https://waline.js.org/guide/deploy/netlify.html#%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2)
+</code></pre>
+<h1 id="3-注册成为Waline管理员账号"><a href="#3-注册成为Waline管理员账号" class="headerlink" title="3. 注册成为Waline管理员账号"></a>3. 注册成为Waline管理员账号</h1><ol>
+<li>部署完成之后，在你服务端地址后面加上 <code>/ui/register</code> 进行注册。首个注册的人被设定为管理员</li>
+<li>管理员登陆后，即可看到评论管理界面。在这里可以修改、标记或删除评论。</li>
+<li>用户也可通过评论框注册账号，登陆后会跳转到自己的档案页。</li>
+</ol>
+<h1 id="4-打开主题文件夹中的-config-yml文件，将下面内容粘贴进去"><a href="#4-打开主题文件夹中的-config-yml文件，将下面内容粘贴进去" class="headerlink" title="4. 打开主题文件夹中的_config.yml文件，将下面内容粘贴进去"></a>4. 打开主题文件夹中的<code>_config.yml</code>文件，将下面内容粘贴进去</h1><pre><code class="yaml">
+waline:
+    # New! Whether enable this plugin
+    enable: true
+    # Waline server address url, you should set this to your own link
+    serverURL: #此处填写你Vercel或者Netlify部署的网址
+    # Custom locales
+    # locale:
+    #   placeholder: Welcome to comment # Comment box placeholder
+    # If false, comment count will only be displayed in post page, not in home page
+    commentCount: true
+    # Pageviews count, Note: You should not enable both `waline.pageview` and `leancloud_visitors`.
+    pageview: false
+    # Custom emoji
+    emoji:
+        - https://unpkg.com/@waline/emojis@1.0.1/weibo
+        - https://unpkg.com/@waline/emojis@1.0.1/alus
+        - https://unpkg.com/@waline/emojis@1.0.1/bilibili
+        - https://unpkg.com/@waline/emojis@1.0.1/qq
+        - https://unpkg.com/@waline/emojis@1.0.1/tieba
+        - https://unpkg.com/@waline/emojis@1.0.1/tw-emoji
+    # Comment infomation, valid meta are nick, mail and link
+    meta:
+        - nick
+        - mail
+        - link
+    # Set required meta field, e.g.: [nick] | [nick, mail]
+    requiredMeta:
+        - nick
+    # Language, available values: en-US, zh-CN, zh-TW, pt-BR, ru-RU, jp-JP
+    lang: zh-CN
+    # Word limit, no limit when setting to 0
+    wordLimit: 0
+    # Whether enable login, can choose from &#39;enable&#39;, &#39;disable&#39; and &#39;force&#39;
+    login: enable
+    # comment per page
+    pageSize: 10
+</code></pre>
+<p>由于ParticleX内置Waline，所以只需要更改serverUrl即可</p>
+<p>其他主题不支持Waline，需要把HTML引入到客户端的可以查看<a target="_blank" rel="noopener" href="https://waline.js.org/guide/get-started/#html-%E5%BC%95%E5%85%A5-%E5%AE%A2%E6%88%B7%E7%AB%AF">官方文档</a></p>
+<h1 id="5-评论通知"><a href="#5-评论通知" class="headerlink" title="5. 评论通知"></a>5. 评论通知</h1><pre><code>[评论通知](https://waline.js.org/guide/features/notification.html)
+</code></pre>
+<h2 id="5-1-评论样式设置"><a href="#5-1-评论样式设置" class="headerlink" title="5.1 评论样式设置"></a>5.1 评论样式设置</h2><pre><code>[评论样式一览](https://www.sarakale.top/blog/posts/537344b2.html#post-comment)
+</code></pre>
+
+    </div>
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="waline-container"></div>
+    </div>
+    
+    
+    
+</div>
+
+                    <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 WorldPeace
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;XingHe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+                </div>
+            </transition>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+<script>
+    Waline.init({
+        el: "#waline-container",
+        serverURL: "https://my-blog-4448youd2-xinghe501.vercel.app/",
+        commentCount: true,
+        pageview: false,
+        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
+        meta: "nick,mail,link".split(","),
+        requiredMeta: "nick".split(","),
+        lang: "zh-CN",
+        wordLimit: 0,
+        pageSize: "10",
+        login: "enable",
+        
+        locale: {},
+        
+    });
+</script>
+
+
+
+        
+    </body>
+</html>

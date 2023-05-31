@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>v2ray | WorldPeace</title>
+        <meta name="author" content="XingHe" />
+        <meta name="description" content="沉沦 坠落" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/favicon.png" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.staticfile.org/waline/2.14.8/waline.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline.min.css" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline-meta.min.css" />
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <div id="desktop-menu">
+        <a class="title" href="/">
+            <span>WORLDPEACE</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;WORLDPEACE</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </div>
+</nav>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <transition name="into">
+                <div id="main" v-show="!loading">
+                    <div class="article">
+    <div>
+        <h1>v2ray</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/5/5
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                科学上网
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/v2ray/" style="color: #00bcd4">v2ray</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="fhs-install-v2ray"><a href="#fhs-install-v2ray" class="headerlink" title="fhs-install-v2ray"></a><a target="_blank" rel="noopener" href="https://github.com/v2fly/fhs-install-v2ray">fhs-install-v2ray</a></h1><h2 id="一键安装"><a href="#一键安装" class="headerlink" title="一键安装"></a>一键安装</h2><pre><code class="bash">bash &lt;(curl -s -L https://git.io/v2ray.sh)
+</code></pre>
+<h2 id="安装和更新V2Ray"><a href="#安装和更新V2Ray" class="headerlink" title="安装和更新V2Ray"></a>安装和更新V2Ray</h2><pre><code class="bash">// 安装可执行文件和 .dat 数据文件
+bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+</code></pre>
+<h3 id="安装最新發行的-geoip-dat-和-geosite-dat"><a href="#安装最新發行的-geoip-dat-和-geosite-dat" class="headerlink" title="安装最新發行的 geoip.dat 和 geosite.dat"></a>安装最新發行的 geoip.dat 和 geosite.dat</h3><pre><code class="bash">// 只更新 .dat 数据文件
+bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
+</code></pre>
+<h3 id="自启动"><a href="#自启动" class="headerlink" title="自启动"></a><strong>自启动</strong></h3><pre><code class="bash">systemctl enable v2ray
+</code></pre>
+<h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a><strong>修改配置</strong></h3><pre><code class="bash">vim /usr/local/etc/v2ray/config.json
+</code></pre>
+<h3 id="配置范文"><a href="#配置范文" class="headerlink" title="配置范文"></a><strong>配置范文</strong></h3><h3 id="v2ray-生成config"><a href="#v2ray-生成config" class="headerlink" title="v2ray 生成config"></a><a target="_blank" rel="noopener" href="https://intmainreturn0.com/v2ray-config-gen/">v2ray 生成config</a></h3><pre><code class="json">&#123;
+    &quot;inbounds&quot;: [&#123;
+        &quot;port&quot;: 5555,
+        &quot;protocol&quot;: &quot;vmess&quot;,
+        &quot;settings&quot;: &#123;
+            &quot;clients&quot;: [
+                &#123;
+                    &quot;id&quot;:&quot;b86e508f-46c4-4b0d-b753-c80c25efa212&quot;,
+                    &quot;level&quot;: 1,
+                    &quot;alterId&quot;: 64
+                &#125;
+            ]
+        &#125;
+    &#125;],
+    &quot;outbounds&quot;: [&#123;
+        &quot;protocol&quot;: &quot;freedom&quot;,
+        &quot;settings&quot;: &#123;&#125;
+    &#125;,&#123;
+    &quot;protocol&quot;: &quot;blackhole&quot;,
+    &quot;settings&quot;: &#123;&#125;,
+    &quot;tag&quot;: &quot;blocked&quot;
+    &#125;],
+    &quot;routing&quot;: &#123;
+        &quot;rules&quot;: [
+            &#123;
+                &quot;type&quot;: &quot;field&quot;,
+                &quot;ip&quot;: [&quot;geoip:private&quot;],
+                &quot;outboundTag&quot;: &quot;blocked&quot;
+            &#125;
+        ]
+    &#125;
+&#125;
+</code></pre>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><pre><code class="bash">systemctl start v2ray
+</code></pre>
+<h3 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h3><pre><code class="bash">systemctl stop v2ray
+</code></pre>
+<h3 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h3><pre><code class="bash">systemctl restart v2ray
+</code></pre>
+<h3 id="移除-V2Ray"><a href="#移除-V2Ray" class="headerlink" title="移除 V2Ray"></a>移除 V2Ray</h3><pre><code class="bash">bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh) 
+--remove
+</code></pre>
+<h2 id="客户端下载"><a href="#客户端下载" class="headerlink" title="客户端下载"></a><strong>客户端下载</strong></h2><p>Web： <a target="_blank" rel="noopener" href="https://v2raya.org/">https://v2raya.org/</a><br>Win：<a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a><br>Linux：<a target="_blank" rel="noopener" href="https://v2raya.org/docs/prologue/installation/debian/">https://v2raya.org/docs/prologue/installation/debian/</a><br>Android：<a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayNG/releases">https://github.com/2dust/v2rayNG/releases</a> </p>
+
+    </div>
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="waline-container"></div>
+    </div>
+    
+    
+    
+</div>
+
+                    <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 WorldPeace
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;XingHe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+                </div>
+            </transition>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+<script>
+    Waline.init({
+        el: "#waline-container",
+        serverURL: "https://my-blog-4448youd2-xinghe501.vercel.app/",
+        commentCount: true,
+        pageview: false,
+        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
+        meta: "nick,mail,link".split(","),
+        requiredMeta: "nick".split(","),
+        lang: "zh-CN",
+        wordLimit: 0,
+        pageSize: "10",
+        login: "enable",
+        
+        locale: {},
+        
+    });
+</script>
+
+
+
+        
+    </body>
+</html>

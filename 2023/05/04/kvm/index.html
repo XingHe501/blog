@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Linux 安装KVM | WorldPeace</title>
+        <meta name="author" content="XingHe" />
+        <meta name="description" content="沉沦 坠落" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/favicon.png" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.staticfile.org/waline/2.14.8/waline.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline.min.css" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline-meta.min.css" />
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <div id="desktop-menu">
+        <a class="title" href="/">
+            <span>WORLDPEACE</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;WORLDPEACE</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </div>
+</nav>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <transition name="into">
+                <div id="main" v-show="!loading">
+                    <div class="article">
+    <div>
+        <h1>Linux 安装KVM</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/5/4
+        </span>
+        
+        <span class="category">
+            <a href="/categories/Linux/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                Linux
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/kvm/" style="color: #00bcd4">kvm</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="安装kvm-步骤"><a href="#安装kvm-步骤" class="headerlink" title="安装kvm 步骤"></a>安装kvm 步骤</h1><h2 id="虚拟机安装："><a href="#虚拟机安装：" class="headerlink" title="虚拟机安装："></a>虚拟机安装：</h2><h3 id="查看硬件是否支持虚拟化"><a href="#查看硬件是否支持虚拟化" class="headerlink" title="查看硬件是否支持虚拟化"></a>查看硬件是否支持虚拟化</h3><pre><code class="shell"># grep -Ei &#39;vmx|svm&#39; /proc/cpuinfo/more
+</code></pre>
+<h3 id="安装虚拟机"><a href="#安装虚拟机" class="headerlink" title="安装虚拟机"></a>安装虚拟机</h3><pre><code class="shell"># yum intall -y virt-* libvirt qemu-img
+</code></pre>
+<h3 id="是否支持kvm模块"><a href="#是否支持kvm模块" class="headerlink" title="是否支持kvm模块"></a>是否支持kvm模块</h3><pre><code class="shell"># lsmod | grep kvm
+</code></pre>
+<h3 id="系统启动时自动启动虚拟机服务"><a href="#系统启动时自动启动虚拟机服务" class="headerlink" title="系统启动时自动启动虚拟机服务"></a>系统启动时自动启动虚拟机服务</h3><pre><code class="shell"># systemctl enable libvirtd
+</code></pre>
+<h3 id="启动虚拟机服务"><a href="#启动虚拟机服务" class="headerlink" title="启动虚拟机服务"></a>启动虚拟机服务</h3><pre><code class="shell"># systemctl start libvirtd
+</code></pre>
+<h3 id="验证是否可用"><a href="#验证是否可用" class="headerlink" title="验证是否可用"></a>验证是否可用</h3><pre><code class="shell"># virsh list -all
+</code></pre>
+<br/>
+
+<h2 id="安装使用Cockpit："><a href="#安装使用Cockpit：" class="headerlink" title="安装使用Cockpit："></a>安装使用Cockpit：</h2><h3 id="安装Cockpit"><a href="#安装Cockpit" class="headerlink" title="安装Cockpit"></a>安装Cockpit</h3><pre><code class="shell"># yum install cockpi
+</code></pre>
+<h3 id="开机自启动Cockpit"><a href="#开机自启动Cockpit" class="headerlink" title="开机自启动Cockpit"></a>开机自启动Cockpit</h3><pre><code class="shell"># systemctl enable --now cockpit.socket
+</code></pre>
+<h3 id="安装软件包使cockpit支持WEB管理"><a href="#安装软件包使cockpit支持WEB管理" class="headerlink" title="安装软件包使cockpit支持WEB管理"></a>安装软件包使cockpit支持WEB管理</h3><pre><code class="shell"># yum install cockpi-machines
+</code></pre>
+<p>使用端口9090通过浏览器访问主机<br/><br/></p>
+<h2 id="网桥配置："><a href="#网桥配置：" class="headerlink" title="网桥配置："></a>网桥配置：</h2><p>最好在物理机上操作，远程容易无法再次连接</p>
+<h3 id="新建网桥"><a href="#新建网桥" class="headerlink" title="新建网桥"></a>新建网桥</h3><pre><code class="shell"># nmcli connection add type bridge con-name br0 iframe br0 autoconnect yes
+</code></pre>
+<h2 id="修改网桥配置文件"><a href="#修改网桥配置文件" class="headerlink" title="修改网桥配置文件"></a>修改网桥配置文件</h2><h4 id="按照自己实际情况更改ip、网关、dns、关闭IPV6等"><a href="#按照自己实际情况更改ip、网关、dns、关闭IPV6等" class="headerlink" title="按照自己实际情况更改ip、网关、dns、关闭IPV6等"></a>按照自己实际情况更改ip、网关、dns、关闭IPV6等</h4><pre><code class="shell"># vim /etc/sysconfig/network-scripts/ifcfg-br0
+</code></pre>
+<h2 id="执行桥接："><a href="#执行桥接：" class="headerlink" title="执行桥接："></a>执行桥接：</h2><h4 id="执行后，在网络配置文件夹下出现一个名为-ifcfg-bridge-slave-eno1-的新文件。"><a href="#执行后，在网络配置文件夹下出现一个名为-ifcfg-bridge-slave-eno1-的新文件。" class="headerlink" title="执行后，在网络配置文件夹下出现一个名为 ifcfg-bridge-slave-eno1 的新文件。"></a>执行后，在网络配置文件夹下出现一个名为 ifcfg-bridge-slave-eno1 的新文件。</h4><pre><code class="shell"># nmcli connection add type bridge-slave ifname eno1 master br0
+</code></pre>
+<h2 id="关闭物理网卡"><a href="#关闭物理网卡" class="headerlink" title="关闭物理网卡"></a>关闭物理网卡</h2><h4 id="注意网络名称"><a href="#注意网络名称" class="headerlink" title="注意网络名称"></a><font color="red">注意网络名称</font></h4><pre><code class="shell"># nmcli connection down eno1
+</code></pre>
+<h2 id="开启桥接："><a href="#开启桥接：" class="headerlink" title="开启桥接："></a>开启桥接：</h2><pre><code class="shell"># nmcli connection up br0
+</code></pre>
+<h2 id="查看连接和网络信息："><a href="#查看连接和网络信息：" class="headerlink" title="查看连接和网络信息："></a>查看连接和网络信息：</h2><pre><code class="shell"># nmcli connection
+# ifconfig
+</code></pre>
+<h2 id="关闭NAT虚拟接口："><a href="#关闭NAT虚拟接口：" class="headerlink" title="关闭NAT虚拟接口："></a>关闭NAT虚拟接口：</h2><pre><code class="shell"># virsh net-destory default
+# virsh net-undefine default
+# systemctl restart libvirtd
+# virsh net-list
+</code></pre>
+<h2 id="重新加载网络配置"><a href="#重新加载网络配置" class="headerlink" title="重新加载网络配置"></a>重新加载网络配置</h2><pre><code class="shell"># nmcli c reload
+</code></pre>
+<h1 id="在过程中遇到的问题记录"><a href="#在过程中遇到的问题记录" class="headerlink" title="在过程中遇到的问题记录"></a>在过程中遇到的问题记录</h1><h2 id="在VCN中无法显示"><a href="#在VCN中无法显示" class="headerlink" title="在VCN中无法显示"></a>在VCN中无法显示</h2><h4 id="提示内容："><a href="#提示内容：" class="headerlink" title="提示内容："></a>提示内容：</h4><p><code>.</code></p>
+<h4 id="解决办法，打开bios中的Intel显示技术选项"><a href="#解决办法，打开bios中的Intel显示技术选项" class="headerlink" title="解决办法，打开bios中的Intel显示技术选项:"></a>解决办法，打开bios中的Intel显示技术选项:</h4><pre><code>BIOS -&gt; ADVANCE -&gt; CPU -&gt; Intel Visualization Technology
+</code></pre>
+
+    </div>
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="waline-container"></div>
+    </div>
+    
+    
+    
+</div>
+
+                    <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 WorldPeace
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;XingHe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+                </div>
+            </transition>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+<script>
+    Waline.init({
+        el: "#waline-container",
+        serverURL: "https://my-blog-4448youd2-xinghe501.vercel.app/",
+        commentCount: true,
+        pageview: false,
+        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
+        meta: "nick,mail,link".split(","),
+        requiredMeta: "nick".split(","),
+        lang: "zh-CN",
+        wordLimit: 0,
+        pageSize: "10",
+        login: "enable",
+        
+        locale: {},
+        
+    });
+</script>
+
+
+
+        
+    </body>
+</html>

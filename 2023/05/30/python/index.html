@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Windows安装Python3.11安装 | WorldPeace</title>
+        <meta name="author" content="XingHe" />
+        <meta name="description" content="沉沦 坠落" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/favicon.png" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.staticfile.org/waline/2.14.8/waline.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline.min.css" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline-meta.min.css" />
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <div id="desktop-menu">
+        <a class="title" href="/">
+            <span>WORLDPEACE</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;WORLDPEACE</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </div>
+</nav>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <transition name="into">
+                <div id="main" v-show="!loading">
+                    <div class="article">
+    <div>
+        <h1>Windows安装Python3.11安装</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/5/30
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E6%95%99%E7%A8%8B/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                教程
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/python/" style="color: #00bcd4">python</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="一、下载"><a href="#一、下载" class="headerlink" title="一、下载"></a>一、下载</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.python.org/ftp/python/3.11.3/python-3.11.3-amd64.exe">Python3.11.3</a></li>
+<li>选择需要的版本：<a target="_blank" rel="noopener" href="https://www.python.org/downloads/windows/">官方网站</a></li>
+</ul>
+<h1 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h1><p>省流：</p>
+<ol>
+<li>打开安装包</li>
+<li>勾选 <code>Add python.exe to Path</code>, 点击<code>Customize installation</code>.</li>
+<li><code>Next</code>.</li>
+<li>勾选<code>Install Python 3.11 for all users</code>.</li>
+<li>选择安装路径，点击<code>Install</code></li>
+<li>打开<code>cmd</code>, 输入<code>python -V</code>查看python版本，如果输出版本代表安装成功</li>
+</ol>
+<h2 id="2-1-选项详解"><a href="#2-1-选项详解" class="headerlink" title="2.1 选项详解"></a>2.1 选项详解</h2><p>点击 <code>Customize Installaton</code> 进行下一步</p>
+<ul>
+<li><code>Install Now</code>：直接安装到当前的用户目录</li>
+<li><code>Customize Installation</code>: 自定义安装</li>
+<li><code>Use admin privileges when install py.exe</code>: 安装python时使用admin权限。<strong>必选</strong></li>
+<li><code>Add python.exe to PATH</code>: 把python.exe添加到环境变量。<strong>必选</strong></li>
+</ul>
+<p><img src="/images/python-tutorial/uTools_1685436608857.png"></p>
+<h2 id="2-2-可选功能f"><a href="#2-2-可选功能f" class="headerlink" title="2.2 可选功能f"></a>2.2 可选功能f</h2><p>直接点击<code>Next</code>进行下一步即可</p>
+<ul>
+<li><code>Documentation</code>: Python文档。 默认安装。</li>
+<li><code>pip</code>: Python的包管理工具，可以用来下载安装Python的其他包。默认安装。</li>
+<li><code>tcl/tk and IDLE</code>: <code>tkinter</code> 和 <code>IDLE</code>安装环境。默认安装。</li>
+<li><code>Python test suite</code>: 标准库测试套件。默认安装。</li>
+<li><code>py launcher</code>; <code>for all users(requires admin privileges)</code>： 安装全局的python解释器，以便更简单的启动python； 默认安装。</li>
+</ul>
+<p><img src="/images/python-tutorial/uTools_1685437140151.png"></p>
+<h2 id="2-3-进阶选择"><a href="#2-3-进阶选择" class="headerlink" title="2.3 进阶选择"></a>2.3 进阶选择</h2><p><code>Customize install location</code>选择Python安装地址，点击<code>Install</code> 进行安装</p>
+<p><img src="/images/python-tutorial/uTools_1685440509953.png"></p>
+<ul>
+<li><code>Install Python 3.11 for all users</code>: 安装在全局位置，勾选此选项,安装路径会自动更改到<code>Program Files</code>路径下。如图</li>
+</ul>
+<p><img src="/images/python-tutorial/uTools_1685440749172.png"></p>
+<ul>
+<li><p><code>Associate files with Python</code>: 把文件跟python相关联，需要py解释器</p>
+</li>
+<li><p><code>Create shortcuts for installed applications</code>: 创建快捷方式</p>
+</li>
+<li><p><code>Add Python to environment variables</code>: 添加到环境变量</p>
+</li>
+<li><p><code>Precompile standard libary</code>: 预编译标准库。可选</p>
+</li>
+<li><p><code>Download debugging symbols</code>: 安装调试模块</p>
+</li>
+<li><p><code>Download debug binaries</code>: 下载debug二进制，需要VS 2017或者更高版本</p>
+</li>
+</ul>
+<h1 id="三、查看python版本"><a href="#三、查看python版本" class="headerlink" title="三、查看python版本"></a>三、查看python版本</h1><p>打开<code>cmd</code>, 输入<code>python -V</code>命令</p>
+<pre><code class="cmd">&gt; python -V
+Python 3.11.2
+</code></pre>
+
+    </div>
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="waline-container"></div>
+    </div>
+    
+    
+    
+</div>
+
+                    <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 WorldPeace
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;XingHe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+                </div>
+            </transition>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+<script>
+    Waline.init({
+        el: "#waline-container",
+        serverURL: "https://my-blog-4448youd2-xinghe501.vercel.app/",
+        commentCount: true,
+        pageview: false,
+        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
+        meta: "nick,mail,link".split(","),
+        requiredMeta: "nick".split(","),
+        lang: "zh-CN",
+        wordLimit: 0,
+        pageSize: "10",
+        login: "enable",
+        
+        locale: {},
+        
+    });
+</script>
+
+
+
+        
+    </body>
+</html>
