@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>使用Hexo搭建博客 III | WorldPeace</title>
+        <title>windows | WorldPeace</title>
         <meta name="author" content="XingHe" />
         <meta name="description" content="沉沦 坠落" />
         <meta name="keywords" content="" />
@@ -151,14 +151,14 @@
                 <div id="main" v-show="!loading">
                     <div class="article">
     <div>
-        <h1>使用Hexo搭建博客 III</h1>
+        <h1>windows</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2023/5/6
+            2023/7/4
         </span>
         
         <span class="category">
@@ -178,12 +178,12 @@
             
             <span class="tag">
                 
-                <a href="/tags/Hexo/" style="color: #ffa2c4">Hexo</a>
+                <a href="/tags/pnpm/" style="color: #ff7d73">pnpm</a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/%E4%B8%BB%E9%A2%98/" style="color: #ffa2c4">主题</a>
+                <a href="/tags/nodejs/" style="color: #ff7d73">nodejs</a>
             </span>
             
         </span>
@@ -191,81 +191,18 @@
     </div>
     
     <div class="content" v-pre>
-        <p>书接上文：<a href="/2023/05/06/hexo-blog-2">Hexo 博客搭建教程 II</a></p>
+        <p>在自己电脑上安装pnpm时遇到了一些问题，无法安装</p>
 <span id="more"></span>
 
-<!-- more -->
-
-<h1 id="1-目录介绍"><a href="#1-目录介绍" class="headerlink" title="1. 目录介绍"></a>1. 目录介绍</h1><p>介绍一下博客根目录各文件&#x2F;文件夹的作用，我的主题用的是 EJS，其他如 Pug&#x2F;Jade 等和原始 HTML 相差太大的模板引擎请不要参考本篇 <del>我太懒了</del></p>
-<pre><code>blog # Hexo 博客根目录
-|---public # 静态网页文件
-|---source # 文章
-|---themes # 主题
-    |---&lt;theme-name&gt;
-        |---layout # 布局文件
-        |   |---layout.ejs # 网页的基本布局
-        |---source # 主题资源文件，里面的内容会生成到静态文件下
+<h1 id="使用npm安装pnpm完成之后，运行pnpm提示无法把C盘路径下的pnpm视作命令"><a href="#使用npm安装pnpm完成之后，运行pnpm提示无法把C盘路径下的pnpm视作命令" class="headerlink" title="使用npm安装pnpm完成之后，运行pnpm提示无法把C盘路径下的pnpm视作命令"></a>使用npm安装pnpm完成之后，运行pnpm提示无法把C盘路径下的pnpm视作命令</h1><p>在stackflow上找到了解决问题，原文：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/75365692/how-to-install-pnpm-on-windows">How to install pnpm on Windows?</a></p>
+<h2 id="Step-1-Open-command-and-run-this-command"><a href="#Step-1-Open-command-and-run-this-command" class="headerlink" title="Step.1 Open command and run this command."></a>Step.1 Open command and run this command.</h2><pre><code class="shell">set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 </code></pre>
-<p><strong>下文中的 <code>source</code> 均指主题文件夹下的</strong></p>
-<h1 id="2-添加自定义-JS-x2F-CSS"><a href="#2-添加自定义-JS-x2F-CSS" class="headerlink" title="2. 添加自定义 JS&#x2F;CSS"></a>2. 添加自定义 JS&#x2F;CSS</h1><p>在 <code>source</code> 下添加自定义文件，把文件放在 <code>js</code> <code>css</code> 文件夹下分类，不然生成的静态文件会很乱<br>然后在 <code>layout.ejs</code> 下添加如下内容，如果使用网络上的文件直接在 <code>src</code> <code>href</code> 中填写路径即可</p>
-<pre><code class="html">&lt;script src=&quot;/js/&lt;file&gt;&quot;&gt;&lt;/script&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/&lt;file&gt;&quot; /&gt;
+<p>When you run this command, you can see that your system has set all policies for the current user as remotely. It will take few seconds to complete this process.</p>
+<h2 id="Step-2-Now-you-have-to-run-the-second-command-on-your-system-This-command-is"><a href="#Step-2-Now-you-have-to-run-the-second-command-on-your-system-This-command-is" class="headerlink" title="Step 2: Now you have to run the second command on your system. This command is:"></a>Step 2: Now you have to run the second command on your system. This command is:</h2><pre><code class="shell">Get-ExecutionPolicy
 </code></pre>
-<h1 id="3-我用的自定义文件"><a href="#3-我用的自定义文件" class="headerlink" title="3. 我用的自定义文件"></a>3. 我用的自定义文件</h1><h2 id="3-1-Live2D-组件"><a href="#3-1-Live2D-组件" class="headerlink" title="3.1. Live2D 组件"></a>3.1. Live2D 组件</h2><p><strong>已被弃用了，因为写的太乱并且很卡</strong></p>
-<p>将<a target="_blank" rel="noopener" href="https://github.com/imuncle/live2d">这里</a>的 Live2D 模型 Clone 到本地<br>选择一个模型（是 Cubism 3 版本的，在 <code>live2d_3</code> 文件夹下）复制到 <code>source/model</code></p>
-<pre><code class="html">&lt;div id=&quot;L2dCanvas&quot;&gt;&lt;/div&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/live2d.min.css&quot; /&gt;
-&lt;script src=&quot;https://cdn.staticfile.org/pixi.js/4.6.1/pixi.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;/js/live2d.min.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-    var v = new Viewer(&#123;
-        width: 240,
-        height: 325,
-        right: &quot;0&quot;,
-        bottom: &quot;0&quot;,
-        basePath: &quot;/model&quot;,
-        role: &quot;&lt;model&gt;&quot;,
-        mobile: true,
-    &#125;);
-&lt;/script&gt;
+<p>When you have run this command your system has a show “RemoteSigned”. If you have received this message, then your problem will be solved. Now you have to go to the next step to view the list of policies which policy has been updated by the last commands.</p>
+<h2 id="Step-3-To-view-their-policy-you-need-to-run-this-command-in-your-command-prompt"><a href="#Step-3-To-view-their-policy-you-need-to-run-this-command-in-your-command-prompt" class="headerlink" title="Step 3: To view their policy, you need to run this command in your command prompt:"></a>Step 3: To view their policy, you need to run this command in your command prompt:</h2><pre><code class="shell">Get-ExecutionPolicy -list
 </code></pre>
-<p><a target="_blank" rel="noopener" href="https://static-argvchs.netlify.app/js/live2d.min.js"><code>live2d.min.js</code></a> <a target="_blank" rel="noopener" href="https://static-argvchs.netlify.app/css/live2d.min.css"><code>live2d.min.css</code></a> <a target="_blank" rel="noopener" href="https://static-argvchs.netlify.app/assets/model.zip"><code>live2d.zip</code></a></p>
-<h2 id="3-2-鼠标点击特效"><a href="#3-2-鼠标点击特效" class="headerlink" title="3.2. 鼠标点击特效"></a>3.2. 鼠标点击特效</h2><pre><code class="html">&lt;canvas
-    id=&quot;fireworks&quot;
-    style=&quot;position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 32767&quot;
-&gt;&lt;/canvas&gt;
-&lt;script src=&quot;https://cdn.staticfile.org/animejs/3.2.1/anime.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;/js/fireworks.min.js&quot;&gt;&lt;/script&gt;
-</code></pre>
-<p><a target="_blank" rel="noopener" href="https://static-argvchs.netlify.app/js/fireworks.min.js"><code>fireworks.min.js</code></a></p>
-<h2 id="3-3-流星背景特效"><a href="#3-3-流星背景特效" class="headerlink" title="3.3. 流星背景特效"></a>3.3. 流星背景特效</h2><pre><code class="html">&lt;canvas
-    id=&quot;background&quot;
-    style=&quot;position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: -1&quot;
-&gt;&lt;/canvas&gt;
-&lt;script src=&quot;/js/background.min.js&quot;&gt;&lt;/script&gt;
-</code></pre>
-<p><a target="_blank" rel="noopener" href="https://static-argvchs.netlify.app/js/background.min.js"><code>background.min.js</code></a></p>
-<h2 id="3-4-鼠标指针特效"><a href="#3-4-鼠标指针特效" class="headerlink" title="3.4. 鼠标指针特效"></a>3.4. 鼠标指针特效</h2><pre><code class="html">&lt;div id=&quot;cursor&quot;&gt;&lt;/div&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/cursor.min.css&quot; /&gt;
-&lt;script src=&quot;/js/cursor.min.js&quot;&gt;&lt;/script&gt;
-</code></pre>
-<p><a target="_blank" rel="noopener" href="https://static-argvchs.netlify.app/css/cursor.min.css"><code>cursor.min.css</code></a> <a target="_blank" rel="noopener" href="https://static-argvchs.netlify.app/js/cursor.min.js"><code>cursor.min.js</code></a></p>
-<h1 id="4-Hexo-Markdown-语法补充"><a href="#4-Hexo-Markdown-语法补充" class="headerlink" title="4. Hexo Markdown 语法补充"></a>4. Hexo Markdown 语法补充</h1><p>Markdown 是支持渲染 HTML 的，所以可以实现各种效果<br>如果你要不使 HTML 标签被渲染可以在右边加 <code>\</code> 转义，如 <code>&lt;tag\&gt;</code>，但还是推荐 <code>`code`</code> 的代码格式</p>
-<h2 id="4-1-字体"><a href="#4-1-字体" class="headerlink" title="4.1. 字体"></a>4.1. 字体</h2><p>用 <code>&lt;font&gt;</code> 元素来实现字体的样式修改</p>
-<pre><code class="markdown">&lt;font color=&lt;color&gt; size=&lt;size&gt; face=&lt;face&gt;&gt;...&lt;/font&gt;
-</code></pre>
-<h2 id="4-2-下载文件"><a href="#4-2-下载文件" class="headerlink" title="4.2. 下载文件"></a>4.2. 下载文件</h2><p>只要把文件放到 <code>source</code> 下，在 Markdown 中引用就行</p>
-<p>部分文件可能不会下载，直接在浏览器打开，可以用第二种方法</p>
-<pre><code class="markdown">[...](&lt;file&gt;)
-&lt;a href=&quot;&lt;file&gt;&quot; download&gt;...&lt;/a&gt;
-</code></pre>
-<h2 id="4-3-注释"><a href="#4-3-注释" class="headerlink" title="4.3. 注释"></a>4.3. 注释</h2><p>Markdown 注释和 HTML 一样</p>
-<pre><code class="markdown">&lt;!-- ... --&gt;
-</code></pre>
-<p>特别的，用 <code>&lt;!-- more --&gt;</code> 可以控制主页预览内容，后面的内容在显示全文时才出现</p>
-<h2 id="4-4-解决部分主题没有块引用的样式"><a href="#4-4-解决部分主题没有块引用的样式" class="headerlink" title="4.4. 解决部分主题没有块引用的样式"></a>4.4. 解决部分主题没有块引用的样式</h2><p><del>例如 Particle</del></p>
-<p>块引用会解析成 <code>&lt;blockquote&gt;</code> 标签，添加自定义 CSS 即可</p>
-<p>下一篇：<a href="/2023/05/06/hexo-blog-4">使用Hexo搭建博客 IV</a></p>
 
     </div>
     
