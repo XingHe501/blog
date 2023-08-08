@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>mongodb | WorldPeace</title>
+        <meta name="author" content="XingHe" />
+        <meta name="description" content="沉沦 坠落" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/favicon.png" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.staticfile.org/waline/2.14.8/waline.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline.min.css" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline-meta.min.css" />
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <div id="desktop-menu">
+        <a class="title" href="/">
+            <span>WORLDPEACE</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;WORLDPEACE</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </div>
+</nav>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <transition name="into">
+                <div id="main" v-show="!loading">
+                    <div class="article">
+    <div>
+        <h1>mongodb</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/6/19
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <pre><code>getMongo                                   Returns the current database connection
+getName                                    Returns the name of the DB
+getCollectionNames                         Returns an array containing the names of all collections in the current database.
+getCollectionInfos                         Returns an array of documents with collection information,
+                                               i.e. collection name and options, for the current database.
+runCommand                                 Runs an arbitrary command on the database.
+adminCommand                               Runs an arbitrary command against the admin database.
+aggregate                                  Runs a specified admin/diagnostic pipeline which does not require an underlying collection.
+getSiblingDB                               Returns another database without modifying the db variable in the shell environment.
+getCollection                              Returns a collection or a view object that is functionally equivalent to using the db.&lt;collectionName&gt;.
+dropDatabase                               Removes the current database, deleting the associated data files.
+createUser                                 Creates a new user for the database on which the method is
+                                               run. db.createUser() returns a duplicate user error if the user already exists on the database.
+</code></pre>
+<pre><code>    updateUser                                 Updates the users profile on the database on which you run the method. An update to a field completely replaces the previous fields values. This includes updates to the users roles array.
+    changeUserPassword                         Updates a users password. Run the method in the database where the user is defined, i.e. the database you created the user.
+    logout                                     Ends the current authentication session. This function has no effect if the current session is not authenticated.
+    dropUser                                   Removes the user from the current database.
+    dropAllUsers                               Removes all users from the current database.
+    auth                                       Allows a user to authenticate to the database from within the shell.
+    grantRolesToUser                           Grants additional roles to a user.
+    revokeRolesFromUser                        Removes a one or more roles from a user on the current database.
+    getUser                                    Returns user information for a specified user. Run this method on the users database. The user must exist on the database on which the method runs.
+    getUsers                                   Returns information for all the users in the database.
+    createCollection                           Create new collection
+    createEncryptedCollection                  Creates a new collection with a list of encrypted fields each with unique and auto-created data encryption keys (DEKs). This is a utility function that internally utilises ClientEnryption.createEncryptedCollection.
+    createView                                 Create new view
+    createRole                                 Creates a new role.
+    updateRole                                 Updates the roles profile on the database on which you run the method. An update to a field completely replaces the previous fields values.
+    dropRole                                   Removes the role from the current database.
+    dropAllRoles                               Removes all roles from the current database.
+    grantRolesToRole                           Grants additional roles to a role.
+    revokeRolesFromRole                        Removes a one or more roles from a role on the current database.
+    grantPrivilegesToRole                      Grants additional privileges to a role.
+    revokePrivilegesFromRole                   Removes a one or more privileges from a role on the current database.
+    getRole                                    Returns role information for a specified role. Run this method on the roles database. The role must exist on the database on which the method runs.
+    getRoles                                   Returns information for all the roles in the database.
+    currentOp                                  Runs an aggregation using $currentOp operator. Returns a document that contains information on in-progress operations for the database instance. For further information, see $currentOp.
+    killOp                                     Calls the killOp command. Terminates an operation as specified by the operation ID. To find operations and their corresponding IDs, see $currentOp or db.currentOp().
+    shutdownServer                             Calls the shutdown command. Shuts down the current mongod or mongos process cleanly and safely. You must issue the db.shutdownServer() operation against the admin database.
+    fsyncLock                                  Calls the fsync command. Forces the mongod to flush all pending write operations to disk and locks the entire mongod instance to prevent additional writes until the user releases the lock with a corresponding db.fsyncUnlock() command.
+    fsyncUnlock                                Calls the fsyncUnlock command. Reduces the lock taken by db.fsyncLock() on a mongod instance by 1.
+    version                                    returns the db version. uses the buildinfo command
+    serverBits                                 returns the db serverBits. uses the buildInfo command
+    isMaster                                   Calls the isMaster command
+    hello                                      Calls the hello command
+    serverBuildInfo                            returns the db serverBuildInfo. uses the buildInfo command
+    serverStatus                               returns the server stats. uses the serverStatus command
+    stats                                      returns the db stats. uses the dbStats command
+    hostInfo                                   Calls the hostInfo command
+    serverCmdLineOpts                          returns the db serverCmdLineOpts. uses the getCmdLineOpts command
+    rotateCertificates                         Calls the rotateCertificates command
+    printCollectionStats                       Prints the collection.stats for each collection in the db.
+    getFreeMonitoringStatus                    Calls the getFreeMonitoringStatus command
+    disableFreeMonitoring                      returns the db disableFreeMonitoring. uses the setFreeMonitoring command
+    enableFreeMonitoring                       returns the db enableFreeMonitoring. uses the setFreeMonitoring command
+    getProfilingStatus                         returns the db getProfilingStatus. uses the profile command
+    setProfilingLevel                          returns the db setProfilingLevel. uses the profile command
+    setLogLevel                                returns the db setLogLevel. uses the setParameter command
+    getLogComponents                           returns the db getLogComponents. uses the getParameter command
+    cloneDatabase                              deprecated, non-functional
+    cloneCollection                            deprecated, non-functional
+    copyDatabase                               deprecated, non-functional
+    commandHelp                                returns the db commandHelp. uses the passed in command with help: true
+    listCommands                               Calls the listCommands command
+    getLastErrorObj                            Calls the getLastError command
+    getLastError                               Calls the getLastError command
+    printShardingStatus                        Calls sh.status(verbose)
+    printSecondaryReplicationInfo              Prints secondary replicaset information
+    getReplicationInfo                         Returns replication information
+    printReplicationInfo                       Formats sh.getReplicationInfo
+    printSlaveReplicationInfo                  DEPRECATED. Use db.printSecondaryReplicationInfo
+    setSecondaryOk                             This method is deprecated. Use db.getMongo().setReadPref() instead
+    watch                                      Opens a change stream cursor on the database
+    sql                                        (Experimental) Runs a SQL query against Atlas Data Lake. Note: this is an experimental feature that may be subject to change in future releases.
+</code></pre>
+
+    </div>
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="waline-container"></div>
+    </div>
+    
+    
+    
+</div>
+
+                    <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 WorldPeace
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;XingHe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+                </div>
+            </transition>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+<script>
+    Waline.init({
+        el: "#waline-container",
+        serverURL: "https://my-blog-4448youd2-xinghe501.vercel.app/",
+        commentCount: true,
+        pageview: false,
+        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
+        meta: "nick,mail,link".split(","),
+        requiredMeta: "nick".split(","),
+        lang: "zh-CN",
+        wordLimit: 0,
+        pageSize: "10",
+        login: "enable",
+        
+        locale: {},
+        
+    });
+</script>
+
+
+
+        
+    </body>
+</html>

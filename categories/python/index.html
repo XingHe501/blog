@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>使用hexo搭建博客Ⅰ | WorldPeace</title>
+        <title>Categories: python | WorldPeace</title>
         <meta name="author" content="XingHe" />
         <meta name="description" content="沉沦 坠落" />
         <meta name="keywords" content="" />
@@ -28,14 +28,6 @@
 
 <script src="/js/lib/preview.js"></script>
 
-
-
-
-
-
-<script src="https://cdn.staticfile.org/waline/2.14.8/waline.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline.min.css" />
-<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline-meta.min.css" />
 
 
 
@@ -149,20 +141,13 @@
 
             <transition name="into">
                 <div id="main" v-show="!loading">
-                    <div class="article">
-    <div>
-        <h1>使用hexo搭建博客Ⅰ</h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/5/6
-        </span>
+                    <div id="archives">
+    
+    <div class="categories-tags">
         
-        <span class="category">
-            <a href="/categories/%E6%95%99%E7%A8%8B/">
+        
+        <span>
+            <a href="/categories/%E6%95%99%E7%A8%8B/" style="background: #03a9f4">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
@@ -171,72 +156,126 @@
         </span>
         
         
-        <span class="tags">
-            <span class="icon">
-                <i class="fa-solid fa-tags fa-fw"></i>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/Hexo/" style="color: #00bcd4">Hexo</a>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/%E4%B8%BB%E9%A2%98/" style="color: #00bcd4">主题</a>
-            </span>
-            
+        
+        <span>
+            <a href="/categories/erlang/" style="background: #00a596">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                erlang
+            </a>
         </span>
+        
+        
+        
+        <span>
+            <a href="/categories/command/" style="background: #ffa2c4">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                command
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/categories/Linux/" style="background: #00bcd4">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                Linux
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/categories/python/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                python
+            </a>
+        </span>
+        
+        
+        
+        
+        
+        <span>
+            <a href="/categories/question/" style="background: #03a9f4">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                question
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="background: #ffa2c4">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                科学上网
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/categories/%E6%95%99%E7%A8%8B/windows/" style="background: #00a596">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                windows
+            </a>
+        </span>
+        
         
     </div>
     
-    <div class="content" v-pre>
-        <span id="more"></span>
-
-<blockquote><p>Hexo 是一个快速、简洁且高效的博客框架，Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页<br>Markdown 可以看 GitHub 的<a target="_blank" rel="noopener" href="https://docs.github.com/zh/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">基本撰写和格式语法</a></p>
-<footer><strong>argvchs ---</strong><cite><a target="_blank" rel="noopener" href="https://argvchs.github.io/2022/04/17/hexo-blog-1/">Hexo 博客搭建教程 I</a></cite></footer></blockquote>
-<h1 id="1-安装-Git-和-Node-js"><a href="#1-安装-Git-和-Node-js" class="headerlink" title="1. 安装 Git 和 Node.js"></a>1. 安装 Git 和 Node.js</h1><ul>
-<li><p><a target="_blank" rel="noopener" href="https://git-scm.com/downloads">Git</a></p>
-<p>完成后用 <code>git --version</code> 命令检查，有提示即安装正确</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a></p>
-<p>选择 LTS 或 Current 版本，安装一路确认即可<br>完成后用 <code>node -v</code> 命令检查，有提示即安装正确</p>
-</li>
-</ul>
-<h1 id="2-启动Corepack"><a href="#2-启动Corepack" class="headerlink" title="2. 启动Corepack"></a>2. 启动Corepack</h1><p>运行<code>corepack enable</code> 启用 <code>Corepack</code></p>
-<p>可能会出现如下报错。使用管理员身份重新执行一下<code>corepack enable</code>就可以了</p>
-<pre><code class="bash">Internal Error: EPERM: operation not permitted, open &#39;Y:\nodejs-v16.17.0-x64\pnpm
-</code></pre>
-<p>启用后自动安装 <code>Yarn</code> 和 <code>PNPM</code>，这样以后的命令都可以换成喜欢的包管理器.以下命令使用的是<code>npm</code><br>这里是速度参考<br><img src="https://pnpm.io/img/benchmarks/alotta-files.svg" alt="pnpm-vs-npm-vs-yarn"></p>
-<h1 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3. 安装Hexo"></a>3. 安装Hexo</h1><p>首先新建一个文件夹作为自己的博客目录，进入到博客目录安装Hexo</p>
-<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/#%E5%AE%89%E8%A3%85-Hexo">Hexo官方文档</a></p>
-<pre><code class="bash">npm install -g hexo-cli #全局安装
-</code></pre>
-<p>也可以局部安装</p>
-<pre><code class="bash">npm install hexo
-</code></pre>
-<h1 id="4-Hexo-的一些命令"><a href="#4-Hexo-的一些命令" class="headerlink" title="4. Hexo 的一些命令"></a>4. Hexo 的一些命令</h1><ul>
-<li>生成静态文件：<code>hexo g</code></li>
-<li>清空静态文件：<code>hexo cl</code></li>
-<li>在本地运行：<code>hexo s</code></li>
-<li>部署到网站：<code>hexo d</code></li>
-<li>生成静态文件并部署到网站：<code>hexo d -g</code> 或 <code>hexo g -d</code></li>
-<li>创建新文章：<code>hexo new &lt;file&gt;</code></li>
-</ul>
-<p><strong>P.S.<br>    1. 创建新文章命令中的 <code>&lt;file&gt;</code> 是文件名，标题在文章中的 <code>title</code> 参数中修改<br>    2. 如果是局部安装的<code>Hexo</code>,那么命令要加上<code>npx</code>,如：在本地运行：<code>npx hexo s</code></strong></p>
-<p>下一篇：<a href="/2023/05/06/hexo-blog-2">使用Hexo搭建博客Ⅱ</a></p>
-
+    <div class="timeline">
+        <div class="timeline-tail"></div>
+        <div class="timeline-content">
+            <div class="item-time">2023/6/1</div>
+            <a href="/2023/06/01/pyenv/">
+                <h3>简易的python版本管理工具: pyenv</h3>
+            </a>
+            <div class="info">
+                
+                <span class="category">
+                    <a href="/categories/python/">
+                        <span class="icon">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </span>
+                        python
+                    </a>
+                </span>
+                
+                
+                <span class="tags">
+                    <span class="icon">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </span>
+                    
+                    <span class="tag">
+                        
+                        <a href="/tags/pyenv/" style="color: #ff7d73">pyenv</a>
+                    </span>
+                    
+                    <span class="tag">
+                        
+                        <a href="/tags/python/" style="color: #ff7d73">python</a>
+                    </span>
+                    
+                </span>
+                
+            </div>
+        </div>
     </div>
-    
-    
-    
-    
-    
-    <div id="comment">
-        <div id="waline-container"></div>
-    </div>
-    
-    
     
 </div>
 
@@ -269,31 +308,6 @@
             
         </div>
         <script src="/js/main.js"></script>
-        
-        
-
-
-<script>
-    Waline.init({
-        el: "#waline-container",
-        serverURL: "https://my-blog-4448youd2-xinghe501.vercel.app/",
-        commentCount: true,
-        pageview: false,
-        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
-        meta: "nick,mail,link".split(","),
-        requiredMeta: "nick".split(","),
-        lang: "zh-CN",
-        wordLimit: 0,
-        pageSize: "10",
-        login: "enable",
-        
-        locale: {},
-        
-    });
-</script>
-
-
-
         
     </body>
 </html>
