@@ -40,7 +40,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true # 每一次通过 hexo new [layout] <title> 命令创建新文章自动创建一个文件夹存放资源
 relative_link: false
 future: true
 highlight:
