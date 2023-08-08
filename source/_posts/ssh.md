@@ -1,12 +1,10 @@
 ---
-title: SSH远程免密登录
-tags:
-    - SSH
-    - Linux
-categories: 教程
-date: 2023-05-08 11:50:13
+title: ssh
+tags: ssh
+categories: ssh
+description: ''
+date: 2023-08-08 12:11:47
 ---
-
 使用SSH免密登录另一台服务器
 
 <!-- more -->
