@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Categories: command | WorldPeace</title>
+        <title>go_understand.md | WorldPeace</title>
         <meta name="author" content="XingHe" />
         <meta name="description" content="沉沦 坠落" />
         <meta name="keywords" content="" />
@@ -28,6 +28,14 @@
 
 <script src="/js/lib/preview.js"></script>
 
+
+
+
+
+
+<script src="https://cdn.staticfile.org/waline/2.14.8/waline.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline.min.css" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline-meta.min.css" />
 
 
 
@@ -141,147 +149,139 @@
 
             <transition name="into">
                 <div id="main" v-show="!loading">
-                    <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        <span>
-            <a href="/categories/%E6%95%99%E7%A8%8B/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                教程
-            </a>
+                    <div class="article">
+    <div>
+        <h1>go_understand.md</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/9/14
         </span>
         
         
-        
-        <span>
-            <a href="/categories/erlang/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                erlang
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/go/" style="color: #ff7d73">go</a>
+            </span>
+            
         </span>
-        
-        
-        
-        <span>
-            <a href="/categories/command/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                command
-            </a>
-        </span>
-        
-        
-        
-        
-        
-        <span>
-            <a href="/categories/Linux/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                Linux
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/categories/python/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                python
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/categories/ssh/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                ssh
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/categories/question/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                question
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                科学上网
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/categories/%E6%95%99%E7%A8%8B/windows/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                windows
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2023/5/5</div>
-            <a href="/2023/05/05/git/">
-                <h3>Git常用命令</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/command/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        command
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/git/" style="color: #03a9f4">git</a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <pre><code class="go">func main() &#123;
+    url := &quot;http://192.168.1.17:8080/download/sango-resources_202309141501_DEV_NEW.zip&quot;
+    md5hash, err := downloadAndGetMD5(url)
+    if err != nil &#123;
+        fmt.Println(err)
+        return
+    &#125;
+    fmt.Println(md5hash)
+
+    md5hash1, err := downloadFile(url)
+    if err != nil &#123;
+        fmt.Println(err)
+        return
+    &#125;
+    fmt.Println(md5hash1)
+&#125;
+</code></pre>
+<pre><code class="go">func downloadFile(url string) (md5 string, err error) &#123;
+    filename := url[strings.LastIndex(url, &quot;/&quot;)+1:]
+    resp, err := http.Get(url)
+    if err != nil &#123;
+        return
+    &#125;
+    defer resp.Body.Close()
+
+    file, err := os.CreateTemp(os.TempDir(), filename)
+    if err != nil &#123;
+        return
+    &#125;
+    defer os.Remove(file.Name())
+    _, err = io.Copy(file, resp.Body)
+    if err != nil &#123;
+        return
+    &#125;
+
+    md5, err = getFileMD5(file.Name())
+    return
+&#125;
+
+func getFileMD5(filename string) (string, error) &#123;
+    file, err := os.Open(filename)
+    if err != nil &#123;
+        return &quot;&quot;, err
+    &#125;
+    defer file.Close()
+
+    md5hash := md5.New()
+    _, err = io.Copy(md5hash, file)
+    if err != nil &#123;
+        return &quot;&quot;, err
+    &#125;
+    currentPos, err := file.Seek(0, os.SEEK_CUR)
+    fmt.Println(&quot;2CurrentPos:&quot;, currentPos)
+
+    hash := md5hash.Sum(nil)
+    hashStr := fmt.Sprintf(&quot;%x&quot;, hash)
+    return hashStr, nil
+&#125;
+
+</code></pre>
+<pre><code class="go">
+func downloadAndGetMD5(url string) (string, error) &#123;
+    filename := url[strings.LastIndex(url, &quot;/&quot;)+1:]
+    resp, err := http.Get(url)
+    if err != nil &#123;
+        return &quot;&quot;, err
+    &#125;
+    defer resp.Body.Close()
+
+    file, err := os.CreateTemp(os.TempDir(), filename)
+    if err != nil &#123;
+        return &quot;&quot;, err
+    &#125;
+    defer os.Remove(file.Name())
+    _, err = io.Copy(file, resp.Body)
+    if err != nil &#123;
+        return &quot;&quot;, err
+    &#125;
+
+    currentPos, err := file.Seek(0, os.SEEK_CUR)
+    fmt.Println(&quot;1CurrentPos:&quot;, currentPos)
+
+    md5hash := md5.New()
+    _, err = io.Copy(md5hash, file)
+    if err != nil &#123;
+        return &quot;&quot;, err
+    &#125;
+
+    hash := md5hash.Sum(nil)
+    hashStr := fmt.Sprintf(&quot;%x&quot;, hash)
+    return hashStr, nil
+&#125;
+</code></pre>
+
     </div>
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="waline-container"></div>
+    </div>
+    
+    
     
 </div>
 
@@ -314,6 +314,31 @@
             
         </div>
         <script src="/js/main.js"></script>
+        
+        
+
+
+<script>
+    Waline.init({
+        el: "#waline-container",
+        serverURL: "https://my-blog-4448youd2-xinghe501.vercel.app/",
+        commentCount: true,
+        pageview: false,
+        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
+        meta: "nick,mail,link".split(","),
+        requiredMeta: "nick".split(","),
+        lang: "zh-CN",
+        wordLimit: 0,
+        pageSize: "10",
+        login: "enable",
+        
+        locale: {},
+        
+    });
+</script>
+
+
+
         
     </body>
 </html>
