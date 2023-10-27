@@ -162,11 +162,11 @@
         </span>
         
         <span class="category">
-            <a href="/categories/Linux/">
+            <a href="/categories/%E6%95%99%E7%A8%8B/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                Linux
+                教程
             </a>
         </span>
         
@@ -178,7 +178,12 @@
             
             <span class="tag">
                 
-                <a href="/tags/kvm/" style="color: #03a9f4">kvm</a>
+                <a href="/tags/KVM/" style="color: #00a596">KVM</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Linux/" style="color: #03a9f4">Linux</a>
             </span>
             
         </span>
@@ -186,11 +191,11 @@
     </div>
     
     <div class="content" v-pre>
-        <h1 id="安装kvm-步骤"><a href="#安装kvm-步骤" class="headerlink" title="安装kvm 步骤"></a>安装kvm 步骤</h1><h2 id="虚拟机安装："><a href="#虚拟机安装：" class="headerlink" title="虚拟机安装："></a>虚拟机安装：</h2><h3 id="查看硬件是否支持虚拟化"><a href="#查看硬件是否支持虚拟化" class="headerlink" title="查看硬件是否支持虚拟化"></a>查看硬件是否支持虚拟化</h3><pre><code class="shell"># grep -Ei &#39;vmx|svm&#39; /proc/cpuinfo/more
+        <h1 id="安装-kvm-步骤"><a href="#安装-kvm-步骤" class="headerlink" title="安装 kvm 步骤"></a>安装 kvm 步骤</h1><h2 id="虚拟机安装："><a href="#虚拟机安装：" class="headerlink" title="虚拟机安装："></a>虚拟机安装：</h2><h3 id="查看硬件是否支持虚拟化"><a href="#查看硬件是否支持虚拟化" class="headerlink" title="查看硬件是否支持虚拟化"></a>查看硬件是否支持虚拟化</h3><pre><code class="shell"># grep -Ei &#39;vmx|svm&#39; /proc/cpuinfo/more
 </code></pre>
 <h3 id="安装虚拟机"><a href="#安装虚拟机" class="headerlink" title="安装虚拟机"></a>安装虚拟机</h3><pre><code class="shell"># yum intall -y virt-* libvirt qemu-img
 </code></pre>
-<h3 id="是否支持kvm模块"><a href="#是否支持kvm模块" class="headerlink" title="是否支持kvm模块"></a>是否支持kvm模块</h3><pre><code class="shell"># lsmod | grep kvm
+<h3 id="是否支持-kvm-模块"><a href="#是否支持-kvm-模块" class="headerlink" title="是否支持 kvm 模块"></a>是否支持 kvm 模块</h3><pre><code class="shell"># lsmod | grep kvm
 </code></pre>
 <h3 id="系统启动时自动启动虚拟机服务"><a href="#系统启动时自动启动虚拟机服务" class="headerlink" title="系统启动时自动启动虚拟机服务"></a>系统启动时自动启动虚拟机服务</h3><pre><code class="shell"># systemctl enable libvirtd
 </code></pre>
@@ -200,17 +205,17 @@
 </code></pre>
 <br/>
 
-<h2 id="安装使用Cockpit："><a href="#安装使用Cockpit：" class="headerlink" title="安装使用Cockpit："></a>安装使用Cockpit：</h2><h3 id="安装Cockpit"><a href="#安装Cockpit" class="headerlink" title="安装Cockpit"></a>安装Cockpit</h3><pre><code class="shell"># yum install cockpi
+<h2 id="安装使用-Cockpit："><a href="#安装使用-Cockpit：" class="headerlink" title="安装使用 Cockpit："></a>安装使用 Cockpit：</h2><h3 id="安装-Cockpit"><a href="#安装-Cockpit" class="headerlink" title="安装 Cockpit"></a>安装 Cockpit</h3><pre><code class="shell"># yum install cockpi
 </code></pre>
-<h3 id="开机自启动Cockpit"><a href="#开机自启动Cockpit" class="headerlink" title="开机自启动Cockpit"></a>开机自启动Cockpit</h3><pre><code class="shell"># systemctl enable --now cockpit.socket
+<h3 id="开机自启动-Cockpit"><a href="#开机自启动-Cockpit" class="headerlink" title="开机自启动 Cockpit"></a>开机自启动 Cockpit</h3><pre><code class="shell"># systemctl enable --now cockpit.socket
 </code></pre>
-<h3 id="安装软件包使cockpit支持WEB管理"><a href="#安装软件包使cockpit支持WEB管理" class="headerlink" title="安装软件包使cockpit支持WEB管理"></a>安装软件包使cockpit支持WEB管理</h3><pre><code class="shell"># yum install cockpi-machines
+<h3 id="安装软件包使-cockpit-支持-WEB-管理"><a href="#安装软件包使-cockpit-支持-WEB-管理" class="headerlink" title="安装软件包使 cockpit 支持 WEB 管理"></a>安装软件包使 cockpit 支持 WEB 管理</h3><pre><code class="shell"># yum install cockpi-machines
 </code></pre>
-<p>使用端口9090通过浏览器访问主机<br/><br/></p>
+<p>使用端口 9090 通过浏览器访问主机<br/><br/></p>
 <h2 id="网桥配置："><a href="#网桥配置：" class="headerlink" title="网桥配置："></a>网桥配置：</h2><p>最好在物理机上操作，远程容易无法再次连接</p>
 <h3 id="新建网桥"><a href="#新建网桥" class="headerlink" title="新建网桥"></a>新建网桥</h3><pre><code class="shell"># nmcli connection add type bridge con-name br0 iframe br0 autoconnect yes
 </code></pre>
-<h2 id="修改网桥配置文件"><a href="#修改网桥配置文件" class="headerlink" title="修改网桥配置文件"></a>修改网桥配置文件</h2><h4 id="按照自己实际情况更改ip、网关、dns、关闭IPV6等"><a href="#按照自己实际情况更改ip、网关、dns、关闭IPV6等" class="headerlink" title="按照自己实际情况更改ip、网关、dns、关闭IPV6等"></a>按照自己实际情况更改ip、网关、dns、关闭IPV6等</h4><pre><code class="shell"># vim /etc/sysconfig/network-scripts/ifcfg-br0
+<h2 id="修改网桥配置文件"><a href="#修改网桥配置文件" class="headerlink" title="修改网桥配置文件"></a>修改网桥配置文件</h2><h4 id="按照自己实际情况更改-ip、网关、dns、关闭-IPV6-等"><a href="#按照自己实际情况更改-ip、网关、dns、关闭-IPV6-等" class="headerlink" title="按照自己实际情况更改 ip、网关、dns、关闭 IPV6 等"></a>按照自己实际情况更改 ip、网关、dns、关闭 IPV6 等</h4><pre><code class="shell"># vim /etc/sysconfig/network-scripts/ifcfg-br0
 </code></pre>
 <h2 id="执行桥接："><a href="#执行桥接：" class="headerlink" title="执行桥接："></a>执行桥接：</h2><h4 id="执行后，在网络配置文件夹下出现一个名为-ifcfg-bridge-slave-eno1-的新文件。"><a href="#执行后，在网络配置文件夹下出现一个名为-ifcfg-bridge-slave-eno1-的新文件。" class="headerlink" title="执行后，在网络配置文件夹下出现一个名为 ifcfg-bridge-slave-eno1 的新文件。"></a>执行后，在网络配置文件夹下出现一个名为 ifcfg-bridge-slave-eno1 的新文件。</h4><pre><code class="shell"># nmcli connection add type bridge-slave ifname eno1 master br0
 </code></pre>
@@ -221,15 +226,15 @@
 <h2 id="查看连接和网络信息："><a href="#查看连接和网络信息：" class="headerlink" title="查看连接和网络信息："></a>查看连接和网络信息：</h2><pre><code class="shell"># nmcli connection
 # ifconfig
 </code></pre>
-<h2 id="关闭NAT虚拟接口："><a href="#关闭NAT虚拟接口：" class="headerlink" title="关闭NAT虚拟接口："></a>关闭NAT虚拟接口：</h2><pre><code class="shell"># virsh net-destory default
+<h2 id="关闭-NAT-虚拟接口："><a href="#关闭-NAT-虚拟接口：" class="headerlink" title="关闭 NAT 虚拟接口："></a>关闭 NAT 虚拟接口：</h2><pre><code class="shell"># virsh net-destory default
 # virsh net-undefine default
 # systemctl restart libvirtd
 # virsh net-list
 </code></pre>
 <h2 id="重新加载网络配置"><a href="#重新加载网络配置" class="headerlink" title="重新加载网络配置"></a>重新加载网络配置</h2><pre><code class="shell"># nmcli c reload
 </code></pre>
-<h1 id="在过程中遇到的问题记录"><a href="#在过程中遇到的问题记录" class="headerlink" title="在过程中遇到的问题记录"></a>在过程中遇到的问题记录</h1><h2 id="在VCN中无法显示"><a href="#在VCN中无法显示" class="headerlink" title="在VCN中无法显示"></a>在VCN中无法显示</h2><h4 id="提示内容："><a href="#提示内容：" class="headerlink" title="提示内容："></a>提示内容：</h4><p><code>.</code></p>
-<h4 id="解决办法，打开bios中的Intel显示技术选项"><a href="#解决办法，打开bios中的Intel显示技术选项" class="headerlink" title="解决办法，打开bios中的Intel显示技术选项:"></a>解决办法，打开bios中的Intel显示技术选项:</h4><pre><code>BIOS -&gt; ADVANCE -&gt; CPU -&gt; Intel Visualization Technology
+<h1 id="在过程中遇到的问题记录"><a href="#在过程中遇到的问题记录" class="headerlink" title="在过程中遇到的问题记录"></a>在过程中遇到的问题记录</h1><h2 id="在-VCN-中无法显示"><a href="#在-VCN-中无法显示" class="headerlink" title="在 VCN 中无法显示"></a>在 VCN 中无法显示</h2><h4 id="提示内容："><a href="#提示内容：" class="headerlink" title="提示内容："></a>提示内容：</h4><p><code>.</code></p>
+<h4 id="解决办法，打开-bios-中的-Intel-显示技术选项"><a href="#解决办法，打开-bios-中的-Intel-显示技术选项" class="headerlink" title="解决办法，打开 bios 中的 Intel 显示技术选项:"></a>解决办法，打开 bios 中的 Intel 显示技术选项:</h4><pre><code>BIOS -&gt; ADVANCE -&gt; CPU -&gt; Intel Visualization Technology
 </code></pre>
 
     </div>

@@ -178,7 +178,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/gen-server/" style="color: #03a9f4">gen_server</a>
+                <a href="/tags/erlang/" style="color: #ffa2c4">erlang</a>
             </span>
             
         </span>
@@ -186,9 +186,9 @@
     </div>
     
     <div class="content" v-pre>
-        <h1 id="对erlang中process-flag-trap-exit-true-的解释"><a href="#对erlang中process-flag-trap-exit-true-的解释" class="headerlink" title="对erlang中process_flag(trap_exit, true)的解释"></a><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/6720472/erlang-and-process-flagtrap-exit-true">对erlang中process_flag(trap_exit, true)的解释</a></h1><p>文档解释：</p>
+        <h1 id="对-erlang-中-process-flag-trap-exit-true-的解释"><a href="#对-erlang-中-process-flag-trap-exit-true-的解释" class="headerlink" title="对 erlang 中 process_flag(trap_exit, true)的解释"></a><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/6720472/erlang-and-process-flagtrap-exit-true">对 erlang 中 process_flag(trap_exit, true)的解释</a></h1><p>文档解释：</p>
 <blockquote>
-<h3 id="process-flag-Flag-trap-exit-Boolean-gt-OldBoolean"><a href="#process-flag-Flag-trap-exit-Boolean-gt-OldBoolean" class="headerlink" title="process_flag(Flag :: trap_exit, Boolean) -&gt;  OldBoolean"></a>process_flag(Flag :: trap_exit, Boolean) -&gt;  <code>OldBoolean</code></h3><blockquote>
+<h3 id="process-flag-Flag-trap-exit-Boolean-gt-OldBoolean"><a href="#process-flag-Flag-trap-exit-Boolean-gt-OldBoolean" class="headerlink" title="process_flag(Flag :: trap_exit, Boolean) -&gt; OldBoolean"></a>process_flag(Flag :: trap_exit, Boolean) -&gt; <code>OldBoolean</code></h3><blockquote>
 <p>When <code>trap_exit</code> is set to <code>true</code>, exit signals arriving to a process are converted to <code>&#123;&#39;EXIT&#39;, From, Reason&#125;</code> messages, which can be received as ordinary messages. If <code>trap_exit</code> is set to <code>false</code>, the process exits if it receives an exit signal other than <code>normal</code> and the exit signal is propagated to its linked processes. Application processes are normally not to trap exits.</p>
 <p>Returns the old value of the flag.</p>
 </blockquote>
@@ -253,7 +253,7 @@ inverse(N) -&gt; 1/N.
         ok
     end,
   PowerStatue = #statue&#123;type = ?E_g_statue_type_power, player_id = Info#s_statue_info.player_id, statue_info = Info, comment_list = CommentL&#125;,
-  ArenaStatue = 
+  ArenaStatue =
                 end,
 </code></pre>
 

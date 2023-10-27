@@ -178,17 +178,17 @@
             
             <span class="tag">
                 
-                <a href="/tags/Netlify/" style="color: #03a9f4">Netlify</a>
+                <a href="/tags/Netlify/" style="color: #ff7d73">Netlify</a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/Vercel/" style="color: #00bcd4">Vercel</a>
+                <a href="/tags/Vercel/" style="color: #ff7d73">Vercel</a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/ParticleX/" style="color: #00a596">ParticleX</a>
+                <a href="/tags/ParticleX/" style="color: #ffa2c4">ParticleX</a>
             </span>
             
             <span class="tag">
@@ -196,25 +196,20 @@
                 <a href="/tags/Waline/" style="color: #ff7d73">Waline</a>
             </span>
             
-            <span class="tag">
-                
-                <a href="/tags/%E8%AF%84%E8%AE%BA/" style="color: #ff7d73">评论</a>
-            </span>
-            
         </span>
         
     </div>
     
     <div class="content" v-pre>
-        <p>看了一些部署Waline的文档，写的感觉都不太全面</p>
+        <p>看了一些部署 Waline 的文档，写的感觉都不太全面</p>
 <span id="more"></span>
 
-<h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h1><p><strong>P.S. Vercel和Netlify选择其一即可，Netlify不需要代理就可访问，所以个人更向于Netlify。当然最好的办法还是<a target="_blank" rel="noopener" href="https://lisenhui.cn/blog/use-custom-domain-active-vercel-waline.html">通过自定义域名来激活Waline的服务</a></strong></p>
+<h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h1><p><strong>P.S. Vercel 和 Netlify 选择其一即可，Netlify 不需要代理就可访问，所以个人更向于 Netlify。当然最好的办法还是<a target="_blank" rel="noopener" href="https://lisenhui.cn/blog/use-custom-domain-active-vercel-waline.html">通过自定义域名来激活 Waline 的服务</a></strong></p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://waline.js.org/">Waline官网</a><br><a target="_blank" rel="noopener" href="https://github.com/walinejs/waline">Waline仓库地址</a></p>
+<p><a target="_blank" rel="noopener" href="https://waline.js.org/">Waline 官网</a> &gt; <a target="_blank" rel="noopener" href="https://github.com/walinejs/waline">Waline 仓库地址</a></p>
 </blockquote>
 <p>可以跟着官方的教程走，也可以很快的搭建好</p>
-<h1 id="1-部署LeanCloud"><a href="#1-部署LeanCloud" class="headerlink" title="1. 部署LeanCloud"></a>1. 部署LeanCloud</h1><ol>
+<h1 id="1-部署-LeanCloud"><a href="#1-部署-LeanCloud" class="headerlink" title="1. 部署 LeanCloud"></a>1. 部署 LeanCloud</h1><ol>
 <li><p><a target="_blank" rel="noopener" href="https://console.leancloud.app/login">登录</a>或者<a target="_blank" rel="noopener" href="https://console.leancloud.app/register">注册</a> <code>LeanCloud 国际版</code> 并进入 <a target="_blank" rel="noopener" href="https://console.leancloud.app/apps">控制台</a></p>
 </li>
 <li><p>点击左上角<code>创建应用</code>，输入一个自己喜欢的名字并选择免费的<code>开发版</code></p>
@@ -222,7 +217,7 @@
 <li><p>点击刚刚创建的应用，选择左下角的 <code>设置</code> &gt; <code>应用凭证</code>。你可以看到你的 <code>APP ID</code>, <code>APP Key</code> 和 <code>Master Key</code>。请记录它们，以便后续使用。</p>
 </li>
 </ol>
-<h1 id="2-部署Waline"><a href="#2-部署Waline" class="headerlink" title="2. 部署Waline"></a>2. 部署Waline</h1><h2 id="2-1-Vercel-部署"><a href="#2-1-Vercel-部署" class="headerlink" title="2.1 Vercel 部署"></a>2.1 Vercel 部署</h2><p><a target="_blank" rel="noopener" href="https://vercel.com/new/clone?repository-url=https://github.com/walinejs/waline/tree/main/example"><img src="https://vercel.com/button#pic_center" alt="Vercel"></a></p>
+<h1 id="2-部署-Waline"><a href="#2-部署-Waline" class="headerlink" title="2. 部署 Waline"></a>2. 部署 Waline</h1><h2 id="2-1-Vercel-部署"><a href="#2-1-Vercel-部署" class="headerlink" title="2.1 Vercel 部署"></a>2.1 Vercel 部署</h2><p><a target="_blank" rel="noopener" href="https://vercel.com/new/clone?repository-url=https://github.com/walinejs/waline/tree/main/example"><img src="https://vercel.com/button#pic_center" alt="Vercel"></a></p>
 <ol>
 <li><p>点击上方按钮，跳转至 Vercel 进行 Server 端部署。</p>
 <blockquote>
@@ -244,53 +239,52 @@
 <p><img src="/images/vercel-4.png" alt="redeploy success"></p>
 </li>
 </ol>
-<h2 id="2-2-在Netlify上部署Waline"><a href="#2-2-在Netlify上部署Waline" class="headerlink" title="2.2 在Netlify上部署Waline"></a>2.2 在Netlify上部署Waline</h2><pre><code>[官方教程](https://waline.js.org/guide/deploy/netlify.html#%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2)
+<h2 id="2-2-在-Netlify-上部署-Waline"><a href="#2-2-在-Netlify-上部署-Waline" class="headerlink" title="2.2 在 Netlify 上部署 Waline"></a>2.2 在 Netlify 上部署 Waline</h2><pre><code>[官方教程](https://waline.js.org/guide/deploy/netlify.html#%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2)
 </code></pre>
-<h1 id="3-注册成为Waline管理员账号"><a href="#3-注册成为Waline管理员账号" class="headerlink" title="3. 注册成为Waline管理员账号"></a>3. 注册成为Waline管理员账号</h1><ol>
+<h1 id="3-注册成为-Waline-管理员账号"><a href="#3-注册成为-Waline-管理员账号" class="headerlink" title="3. 注册成为 Waline 管理员账号"></a>3. 注册成为 Waline 管理员账号</h1><ol>
 <li>部署完成之后，在你服务端地址后面加上 <code>/ui/register</code> 进行注册。首个注册的人被设定为管理员</li>
 <li>管理员登陆后，即可看到评论管理界面。在这里可以修改、标记或删除评论。</li>
 <li>用户也可通过评论框注册账号，登陆后会跳转到自己的档案页。</li>
 </ol>
-<h1 id="4-打开主题文件夹中的-config-yml文件，将下面内容粘贴进去"><a href="#4-打开主题文件夹中的-config-yml文件，将下面内容粘贴进去" class="headerlink" title="4. 打开主题文件夹中的_config.yml文件，将下面内容粘贴进去"></a>4. 打开主题文件夹中的<code>_config.yml</code>文件，将下面内容粘贴进去</h1><pre><code class="yaml">
-waline:
-    # New! Whether enable this plugin
-    enable: true
-    # Waline server address url, you should set this to your own link
-    serverURL: #此处填写你Vercel或者Netlify部署的网址
-    # Custom locales
-    # locale:
-    #   placeholder: Welcome to comment # Comment box placeholder
-    # If false, comment count will only be displayed in post page, not in home page
-    commentCount: true
-    # Pageviews count, Note: You should not enable both `waline.pageview` and `leancloud_visitors`.
-    pageview: false
-    # Custom emoji
-    emoji:
-        - https://unpkg.com/@waline/emojis@1.0.1/weibo
-        - https://unpkg.com/@waline/emojis@1.0.1/alus
-        - https://unpkg.com/@waline/emojis@1.0.1/bilibili
-        - https://unpkg.com/@waline/emojis@1.0.1/qq
-        - https://unpkg.com/@waline/emojis@1.0.1/tieba
-        - https://unpkg.com/@waline/emojis@1.0.1/tw-emoji
-    # Comment infomation, valid meta are nick, mail and link
-    meta:
-        - nick
-        - mail
-        - link
-    # Set required meta field, e.g.: [nick] | [nick, mail]
-    requiredMeta:
-        - nick
-    # Language, available values: en-US, zh-CN, zh-TW, pt-BR, ru-RU, jp-JP
-    lang: zh-CN
-    # Word limit, no limit when setting to 0
-    wordLimit: 0
-    # Whether enable login, can choose from &#39;enable&#39;, &#39;disable&#39; and &#39;force&#39;
-    login: enable
-    # comment per page
-    pageSize: 10
+<h1 id="4-打开主题文件夹中的-config-yml文件，将下面内容粘贴进去"><a href="#4-打开主题文件夹中的-config-yml文件，将下面内容粘贴进去" class="headerlink" title="4. 打开主题文件夹中的_config.yml文件，将下面内容粘贴进去"></a>4. 打开主题文件夹中的<code>_config.yml</code>文件，将下面内容粘贴进去</h1><pre><code class="yaml">waline:
+  # New! Whether enable this plugin
+  enable: true
+  # Waline server address url, you should set this to your own link
+  serverURL: #此处填写你Vercel或者Netlify部署的网址
+  # Custom locales
+  # locale:
+  #   placeholder: Welcome to comment # Comment box placeholder
+  # If false, comment count will only be displayed in post page, not in home page
+  commentCount: true
+  # Pageviews count, Note: You should not enable both `waline.pageview` and `leancloud_visitors`.
+  pageview: false
+  # Custom emoji
+  emoji:
+    - https://unpkg.com/@waline/emojis@1.0.1/weibo
+    - https://unpkg.com/@waline/emojis@1.0.1/alus
+    - https://unpkg.com/@waline/emojis@1.0.1/bilibili
+    - https://unpkg.com/@waline/emojis@1.0.1/qq
+    - https://unpkg.com/@waline/emojis@1.0.1/tieba
+    - https://unpkg.com/@waline/emojis@1.0.1/tw-emoji
+  # Comment infomation, valid meta are nick, mail and link
+  meta:
+    - nick
+    - mail
+    - link
+  # Set required meta field, e.g.: [nick] | [nick, mail]
+  requiredMeta:
+    - nick
+  # Language, available values: en-US, zh-CN, zh-TW, pt-BR, ru-RU, jp-JP
+  lang: zh-CN
+  # Word limit, no limit when setting to 0
+  wordLimit: 0
+  # Whether enable login, can choose from &#39;enable&#39;, &#39;disable&#39; and &#39;force&#39;
+  login: enable
+  # comment per page
+  pageSize: 10
 </code></pre>
-<p>由于ParticleX内置Waline，所以只需要更改serverUrl即可</p>
-<p>其他主题不支持Waline，需要把HTML引入到客户端的可以查看<a target="_blank" rel="noopener" href="https://waline.js.org/guide/get-started/#html-%E5%BC%95%E5%85%A5-%E5%AE%A2%E6%88%B7%E7%AB%AF">官方文档</a></p>
+<p>由于 ParticleX 内置 Waline，所以只需要更改 serverUrl 即可</p>
+<p>其他主题不支持 Waline，需要把 HTML 引入到客户端的可以查看<a target="_blank" rel="noopener" href="https://waline.js.org/guide/get-started/#html-%E5%BC%95%E5%85%A5-%E5%AE%A2%E6%88%B7%E7%AB%AF">官方文档</a></p>
 <h1 id="5-评论通知"><a href="#5-评论通知" class="headerlink" title="5. 评论通知"></a>5. 评论通知</h1><pre><code>[评论通知](https://waline.js.org/guide/features/notification.html)
 </code></pre>
 <h2 id="5-1-评论样式设置"><a href="#5-1-评论样式设置" class="headerlink" title="5.1 评论样式设置"></a>5.1 评论样式设置</h2><pre><code>[评论样式一览](https://www.sarakale.top/blog/posts/537344b2.html#post-comment)

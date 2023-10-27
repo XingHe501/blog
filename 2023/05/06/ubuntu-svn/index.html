@@ -162,11 +162,11 @@
         </span>
         
         <span class="category">
-            <a href="/categories/question/">
+            <a href="/categories/%E6%95%99%E7%A8%8B/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                question
+                教程
             </a>
         </span>
         
@@ -178,12 +178,12 @@
             
             <span class="tag">
                 
-                <a href="/tags/ubuntu/" style="color: #ff7d73">ubuntu</a>
+                <a href="/tags/ubuntu/" style="color: #00a596">ubuntu</a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/svn/" style="color: #03a9f4">svn</a>
+                <a href="/tags/svn/" style="color: #00bcd4">svn</a>
             </span>
             
         </span>
@@ -193,10 +193,10 @@
     <div class="content" v-pre>
         <span id="more"></span>
 
-<p><strong>P.S. 这里可以直接从步骤3开始，也可以从步骤1开始</strong></p>
+<p><strong>P.S. 这里可以直接从步骤 3 开始，也可以从步骤 1 开始</strong></p>
 <h1 id="1-直接删除掉原来的配置"><a href="#1-直接删除掉原来的配置" class="headerlink" title="1. 直接删除掉原来的配置"></a>1. 直接删除掉原来的配置</h1><pre><code class="bash">rm -rf ~/.subversion
 </code></pre>
-<h1 id="2-执行一次svn命令输入账号密码"><a href="#2-执行一次svn命令输入账号密码" class="headerlink" title="2. 执行一次svn命令输入账号密码"></a>2. 执行一次svn命令输入账号密码</h1><pre><code class="bash">svn up
+<h1 id="2-执行一次-svn-命令输入账号密码"><a href="#2-执行一次-svn-命令输入账号密码" class="headerlink" title="2. 执行一次 svn 命令输入账号密码"></a>2. 执行一次 svn 命令输入账号密码</h1><pre><code class="bash">svn up
 </code></pre>
 <p>执行完命令之后会在<code>~/.subversion/auth/svn.simple</code>目录下生成一个文件，我这边的名字叫<br><code>201ec234477d9acdbef432a0ff4519af</code></p>
 <pre><code class="bash">~/projects$ ls ~/.subversion/auth/svn.simple/
@@ -209,7 +209,7 @@ vim 201ec234477d9acdbef432a0ff4519af
 # 或者直接编辑
 vim ~/.subversion/auth/svn.simple/201ec234477d9acdbef432a0ff4519af
 </code></pre>
-<h1 id="4-修改内容如下-passtype固定是simple-K和V后面的数字分别代表key和value的长度-注意SVN服务器的地址"><a href="#4-修改内容如下-passtype固定是simple-K和V后面的数字分别代表key和value的长度-注意SVN服务器的地址" class="headerlink" title="4.修改内容如下, passtype固定是simple, K和V后面的数字分别代表key和value的长度, 注意SVN服务器的地址"></a>4.修改内容如下, passtype固定是simple, K和V后面的数字分别代表key和value的长度, 注意SVN服务器的地址</h1><pre><code class="text">K 15
+<h1 id="4-修改内容如下-passtype-固定是-simple-K-和-V-后面的数字分别代表-key-和-value-的长度-注意-SVN-服务器的地址"><a href="#4-修改内容如下-passtype-固定是-simple-K-和-V-后面的数字分别代表-key-和-value-的长度-注意-SVN-服务器的地址" class="headerlink" title="4.修改内容如下, passtype 固定是 simple, K 和 V 后面的数字分别代表 key 和 value 的长度, 注意 SVN 服务器的地址"></a>4.修改内容如下, passtype 固定是 simple, K 和 V 后面的数字分别代表 key 和 value 的长度, 注意 SVN 服务器的地址</h1><pre><code class="text">K 15
 svn:realmstring
 V 44
 &lt;https://xxx.xxx.xxx.xxx&gt; VisualSVN Server

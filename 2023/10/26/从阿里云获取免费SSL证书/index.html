@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>从阿里云获取免费SSL证书 | WorldPeace</title>
+        <meta name="author" content="XingHe" />
+        <meta name="description" content="沉沦 坠落" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/favicon.png" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.staticfile.org/waline/2.14.8/waline.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline.min.css" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline-meta.min.css" />
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <div id="desktop-menu">
+        <a class="title" href="/">
+            <span>WORLDPEACE</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;WORLDPEACE</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </div>
+</nav>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <transition name="into">
+                <div id="main" v-show="!loading">
+                    <div class="article">
+    <div>
+        <h1>从阿里云获取免费SSL证书</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/26
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E6%95%99%E7%A8%8B/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                教程
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/aliyun/" style="color: #ff7d73">aliyun</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <span id="more"></span>
+
+<blockquote>
+<p>本文转载自：<a target="_blank" rel="noopener" href="https://v2xtls.org/%e4%bb%8e%e9%98%bf%e9%87%8c%e4%ba%91%e8%8e%b7%e5%8f%96%e5%85%8d%e8%b4%b9ssl%e8%af%81%e4%b9%a6/">从阿里云获取免费 SSL 证书</a>，如有问题请查看原文。</p>
+</blockquote>
+<h1 id="从阿里云获取免费-SSL-证书"><a href="#从阿里云获取免费-SSL-证书" class="headerlink" title="从阿里云获取免费 SSL 证书"></a>从阿里云获取免费 SSL 证书</h1><h2 id="阿里云免费证书优点"><a href="#阿里云免费证书优点" class="headerlink" title="阿里云免费证书优点"></a>阿里云免费证书优点</h2><p><a target="_blank" rel="noopener" href="https://www.aliyun.com/minisite/goods?userCode=k4evdv8n">阿里云</a> 提供由 DigiCert 签发的单域名 DV 型免费证书，其优点如下：</p>
+<ol>
+<li>DigiCert 是老牌 CA 认证中心，2017 年收购 Symantec 的 SSL 证书业务，是 SSL 证书行业领导者和高端证书供应商；</li>
+<li>DigiCert 证书被广泛应用在政府、金融机构等重要部门的网站上，即使在国内也不存在被干扰、歧视和 OSCP 被墙的情况，从而能确保你的网站通讯安全和打开顺畅；</li>
+<li>阿里云是国内规模最大、市场份额占有率最高的云计算厂商，对大部分人来说，从阿里云申请 SSL 证书基本上无需额外注册账号；</li>
+<li>阿里云提供的 DigiCert DV 型免费证书有效期一年；</li>
+</ol>
+<p>接下来介绍从阿里云获取免费 SSL 证书的操作步骤。</p>
+<h2 id="阿里云申请免费-SSL-证书操作步骤"><a href="#阿里云申请免费-SSL-证书操作步骤" class="headerlink" title="阿里云申请免费 SSL 证书操作步骤"></a>阿里云申请免费 SSL 证书操作步骤</h2><ol>
+<li><p>打开 <a target="_blank" rel="noopener" href="https://www.aliyun.com/?utm_content=se_1014243503">阿里云</a>链接，点击右上角“登录&#x2F;注册”，可以使用支付宝、淘宝、钉钉等扫码免费注册，或者输入账号名和密码手动注册；</p>
+</li>
+<li><p>登录阿里云后，点击右上角“控制台”进入阿里云产品管理后台：</p>
+</li>
+</ol>
+<p><img src="/images/aliyun/console.png" alt="aliyun-manage"></p>
+<ol start="3">
+<li>点击控制台左上角菜单, 然后点击“产品与服务”，在搜索栏输入“ssl”，点击“数字证书管理服务(SSL 证书)”，可以先点击右边的五角星加入到左侧菜单栏：</li>
+</ol>
+<p><img src="/images/aliyun/ssl.png" alt="Alt text"></p>
+<ol start="4">
+<li>点击“SSL 证书”、“免费证书”、“立即购买”：</li>
+</ol>
+<p><img src="/images/aliyun/ssl-cert.png" alt="Alt text"></p>
+<ol start="5">
+<li>选择“免费证书”、购买数量：“20”、其他服务：“不需要”，点击“立即购买”进入支付页面。勾选“我已阅读并同意《云盾证书服务(包年)服务协议》”，点击“去支付”按钮。因为价格是 0 元，实际上无需支付任何费用。</li>
+</ol>
+<blockquote>
+<p>我已经下过单了，所以提示无法购买</p>
+</blockquote>
+<p><img src="/images/aliyun/order.png" alt="Alt text"></p>
+<ol start="6">
+<li>支付完成后进入证书控制台界面，点击“未签发”下方证书列表右边的“证书申请”按钮，填写如下申请信息：</li>
+</ol>
+<ul>
+<li>申请证书的域名。例如 tlanyan.me 或 test.tlanyan.me；</li>
+<li>申请人联系信息。姓名、联系电话、邮箱和所在区市，请如实填写；</li>
+<li>域名验证方式。域名在阿里云同一个账号下建议选“自动 DNS 验证”，域名别处购买或者 DNS 解析设置在其他家，请选择“手动 DNS 验证”或“文件验证”；</li>
+<li>证书 CSR 生成方式。一般情况下建议“系统生成”，如果你有安全性担忧，也可以手动生成 CSR 然后上传；</li>
+</ul>
+<p><img src="/images/aliyun/apply-cert.png" alt="Alt text"></p>
+<ol start="7">
+<li><p>点击“下一步”，按照提示进行 DNS 解析、上传文件等操作验证对域名有所有权。本文以手工 DNS 验证为例，介绍 CloudFlare 的解析操作（域名的 DNS 托管再 CloudFlare）：</p>
+<p>打开 CloudFlare 登陆界面 <a target="_blank" rel="noopener" href="https://dash.cloudflare.com/login">https://dash.cloudflare.com/login</a>，输入账号密码登录，然后选择域名，点击上方的 DNS-》添加记录，类型选 TXT，然后输入名称和阿里云申请页面的值，最后点击保存：</p>
+</li>
+<li><p>证书申请成功后会发短信通知，进入 SSL 证书控制台，点击证书右边的“下载”链接，按照自己的服务器选择下载的证书：</p>
+</li>
+</ol>
+<p>接下来就是把证书上传到服务器，配置好 web 服务器</p>
+<h2 id="其他事项"><a href="#其他事项" class="headerlink" title="其他事项"></a>其他事项</h2><ol>
+<li>阿里云每个账号最多申请 20 个免费证书。</li>
+</ol>
+
+    </div>
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="waline-container"></div>
+    </div>
+    
+    
+    
+</div>
+
+                    <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 WorldPeace
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;XingHe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+                </div>
+            </transition>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+<script>
+    Waline.init({
+        el: "#waline-container",
+        serverURL: "https://my-blog-4448youd2-xinghe501.vercel.app/",
+        commentCount: true,
+        pageview: false,
+        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
+        meta: "nick,mail,link".split(","),
+        requiredMeta: "nick".split(","),
+        lang: "zh-CN",
+        wordLimit: 0,
+        pageSize: "10",
+        login: "enable",
+        
+        locale: {},
+        
+    });
+</script>
+
+
+
+        
+    </body>
+</html>

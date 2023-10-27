@@ -162,11 +162,11 @@
         </span>
         
         <span class="category">
-            <a href="/categories/Linux/">
+            <a href="/categories/%E6%95%99%E7%A8%8B/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                Linux
+                教程
             </a>
         </span>
         
@@ -174,6 +174,11 @@
         <span class="tags">
             <span class="icon">
                 <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Linux/" style="color: #ffa2c4">Linux</a>
             </span>
             
             <span class="tag">
@@ -188,9 +193,9 @@
     <div class="content" v-pre>
         <h2 id="一、安装编译工具及库文件"><a href="#一、安装编译工具及库文件" class="headerlink" title="一、安装编译工具及库文件"></a>一、安装编译工具及库文件</h2><pre><code class="shell">yum -y install make zlib zlib-devel gcc-c++ libtool  openssl openssl-devel
 </code></pre>
-<h2 id="二、安装pcre"><a href="#二、安装pcre" class="headerlink" title="二、安装pcre"></a>二、安装pcre</h2><p>PCRE的作用主要是让nginx支持rewrite功能</p>
+<h2 id="二、安装-pcre"><a href="#二、安装-pcre" class="headerlink" title="二、安装 pcre"></a>二、安装 pcre</h2><p>PCRE 的作用主要是让 nginx 支持 rewrite 功能</p>
 <ol>
-<li>下载PCER安装包，下载地址：<a target="_blank" rel="noopener" href="http://downloads.sourceforge.net/project/pcre/pcre/8.35/pcre-8.35.tar.gz">http://downloads.sourceforge.net/project/pcre/pcre/8.35/pcre-8.35.tar.gz</a></li>
+<li>下载 PCER 安装包，下载地址：<a target="_blank" rel="noopener" href="http://downloads.sourceforge.net/project/pcre/pcre/8.35/pcre-8.35.tar.gz">http://downloads.sourceforge.net/project/pcre/pcre/8.35/pcre-8.35.tar.gz</a></li>
 </ol>
 <pre><code class="shell">[root@bogon src]# cd /usr/local/src/
 [root@bogon src]# wget http://downloads.sourceforge.net/project/pcre/pcre/8.35/pcre-8.35.tar.gz
@@ -205,8 +210,8 @@
 # 查看版本
     pcre-config --version
 </code></pre>
-<h2 id="三、安装nginx"><a href="#三、安装nginx" class="headerlink" title="三、安装nginx"></a>三、安装nginx</h2><ol>
-<li>下载nginx，Centos8.4安装版本：<a target="_blank" rel="noopener" href="https://nginx.org/download/nginx-1.20.2.tar.gz">https://nginx.org/download/nginx-1.20.2.tar.gz</a></li>
+<h2 id="三、安装-nginx"><a href="#三、安装-nginx" class="headerlink" title="三、安装 nginx"></a>三、安装 nginx</h2><ol>
+<li>下载 nginx，Centos8.4 安装版本：<a target="_blank" rel="noopener" href="https://nginx.org/download/nginx-1.20.2.tar.gz">https://nginx.org/download/nginx-1.20.2.tar.gz</a></li>
 </ol>
 <pre><code class="shell">[root@bogon src]# cd /usr/local/src/
 [root@bogon src]# wget https://nginx.org/download/nginx-1.20.2.tar.gz
@@ -235,26 +240,26 @@ cd nginx-1.20.2
  source /etc/profile
 </code></pre>
 <ol start="6">
-<li>查看nginx版本</li>
+<li>查看 nginx 版本</li>
 </ol>
 <pre><code class="shell">nginx -v
 </code></pre>
-<h1 id="四、Nginx的设置"><a href="#四、Nginx的设置" class="headerlink" title="四、Nginx的设置"></a>四、Nginx的设置</h1><pre><code class="conf">    # Nginx目录浏览功能
+<h1 id="四、Nginx-的设置"><a href="#四、Nginx-的设置" class="headerlink" title="四、Nginx 的设置"></a>四、Nginx 的设置</h1><pre><code class="conf">    # Nginx目录浏览功能
     autoindex on;
     # 默认为on，显示出文件的确切大小，单位是bytes
     # 显示出文件的大概大小，单位是kB或者MB或者GB
     autoindex_exact_size off;
     #默认为off，显示的文件时间为GMT时间。
-    #改为on后，显示的文件时间为文件的服务器时间  
+    #改为on后，显示的文件时间为文件的服务器时间
     autoindex_localtime on;
     # 让浏览器不保存临时文件
     add_header Cache-Control no-store;
     # 避免中文乱码
-    charset utf-8,gbk; 
+    charset utf-8,gbk;
     # 如果希望请求文件是下载而不是显示内容，可以通过添加下面参数实现：
     add_header Content-Disposition attachment;
 </code></pre>
-<h1 id="五、Nginx-设置开机启动"><a href="#五、Nginx-设置开机启动" class="headerlink" title="五、Nginx 设置开机启动"></a>五、Nginx 设置开机启动</h1><p>1.创建nginx.service 文件</p>
+<h1 id="五、Nginx-设置开机启动"><a href="#五、Nginx-设置开机启动" class="headerlink" title="五、Nginx 设置开机启动"></a>五、Nginx 设置开机启动</h1><p>1.创建 nginx.service 文件</p>
 <pre><code class="shell">vim /etc/systemd/system/nginx.service
 </code></pre>
 <ol start="2">

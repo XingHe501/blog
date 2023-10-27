@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>v2ray | WorldPeace</title>
+        <title>V2Ray教程 | WorldPeace</title>
         <meta name="author" content="XingHe" />
         <meta name="description" content="沉沦 坠落" />
         <meta name="keywords" content="" />
@@ -151,7 +151,7 @@
                 <div id="main" v-show="!loading">
                     <div class="article">
     <div>
-        <h1>v2ray</h1>
+        <h1>V2Ray教程</h1>
     </div>
     <div class="info">
         <span class="date">
@@ -162,11 +162,11 @@
         </span>
         
         <span class="category">
-            <a href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">
+            <a href="/categories/%E6%95%99%E7%A8%8B/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                科学上网
+                教程
             </a>
         </span>
         
@@ -178,7 +178,12 @@
             
             <span class="tag">
                 
-                <a href="/tags/v2ray/" style="color: #00a596">v2ray</a>
+                <a href="/tags/Linux/" style="color: #00bcd4">Linux</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/V2Ray/" style="color: #00bcd4">V2Ray</a>
             </span>
             
         </span>
@@ -188,7 +193,7 @@
     <div class="content" v-pre>
         <h1 id="fhs-install-v2ray"><a href="#fhs-install-v2ray" class="headerlink" title="fhs-install-v2ray"></a><a target="_blank" rel="noopener" href="https://github.com/v2fly/fhs-install-v2ray">fhs-install-v2ray</a></h1><h2 id="一键安装"><a href="#一键安装" class="headerlink" title="一键安装"></a>一键安装</h2><pre><code class="bash">bash &lt;(curl -s -L https://git.io/v2ray.sh)
 </code></pre>
-<h2 id="安装和更新V2Ray"><a href="#安装和更新V2Ray" class="headerlink" title="安装和更新V2Ray"></a>安装和更新V2Ray</h2><pre><code class="bash">// 安装可执行文件和 .dat 数据文件
+<h2 id="安装和更新-V2Ray"><a href="#安装和更新-V2Ray" class="headerlink" title="安装和更新 V2Ray"></a>安装和更新 V2Ray</h2><pre><code class="bash">// 安装可执行文件和 .dat 数据文件
 bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
 </code></pre>
 <h3 id="安装最新發行的-geoip-dat-和-geosite-dat"><a href="#安装最新發行的-geoip-dat-和-geosite-dat" class="headerlink" title="安装最新發行的 geoip.dat 和 geosite.dat"></a>安装最新發行的 geoip.dat 和 geosite.dat</h3><pre><code class="bash">// 只更新 .dat 数据文件
@@ -198,37 +203,42 @@ bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/mast
 </code></pre>
 <h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a><strong>修改配置</strong></h3><pre><code class="bash">vim /usr/local/etc/v2ray/config.json
 </code></pre>
-<h3 id="配置范文"><a href="#配置范文" class="headerlink" title="配置范文"></a><strong>配置范文</strong></h3><h3 id="v2ray-生成config"><a href="#v2ray-生成config" class="headerlink" title="v2ray 生成config"></a><a target="_blank" rel="noopener" href="https://intmainreturn0.com/v2ray-config-gen/">v2ray 生成config</a></h3><pre><code class="json">&#123;
-    &quot;inbounds&quot;: [&#123;
-        &quot;port&quot;: 5555,
-        &quot;protocol&quot;: &quot;vmess&quot;,
-        &quot;settings&quot;: &#123;
-            &quot;clients&quot;: [
-                &#123;
-                    &quot;id&quot;:&quot;b86e508f-46c4-4b0d-b753-c80c25efa212&quot;,
-                    &quot;level&quot;: 1,
-                    &quot;alterId&quot;: 64
-                &#125;
-            ]
-        &#125;
-    &#125;],
-    &quot;outbounds&quot;: [&#123;
-        &quot;protocol&quot;: &quot;freedom&quot;,
-        &quot;settings&quot;: &#123;&#125;
-    &#125;,&#123;
-    &quot;protocol&quot;: &quot;blackhole&quot;,
-    &quot;settings&quot;: &#123;&#125;,
-    &quot;tag&quot;: &quot;blocked&quot;
-    &#125;],
-    &quot;routing&quot;: &#123;
-        &quot;rules&quot;: [
-            &#123;
-                &quot;type&quot;: &quot;field&quot;,
-                &quot;ip&quot;: [&quot;geoip:private&quot;],
-                &quot;outboundTag&quot;: &quot;blocked&quot;
-            &#125;
+<h3 id="配置范文"><a href="#配置范文" class="headerlink" title="配置范文"></a><strong>配置范文</strong></h3><h3 id="v2ray-生成-config"><a href="#v2ray-生成-config" class="headerlink" title="v2ray 生成 config"></a><a target="_blank" rel="noopener" href="https://intmainreturn0.com/v2ray-config-gen/">v2ray 生成 config</a></h3><pre><code class="json">&#123;
+  &quot;inbounds&quot;: [
+    &#123;
+      &quot;port&quot;: 5555,
+      &quot;protocol&quot;: &quot;vmess&quot;,
+      &quot;settings&quot;: &#123;
+        &quot;clients&quot;: [
+          &#123;
+            &quot;id&quot;: &quot;b86e508f-46c4-4b0d-b753-c80c25efa212&quot;,
+            &quot;level&quot;: 1,
+            &quot;alterId&quot;: 64
+          &#125;
         ]
+      &#125;
     &#125;
+  ],
+  &quot;outbounds&quot;: [
+    &#123;
+      &quot;protocol&quot;: &quot;freedom&quot;,
+      &quot;settings&quot;: &#123;&#125;
+    &#125;,
+    &#123;
+      &quot;protocol&quot;: &quot;blackhole&quot;,
+      &quot;settings&quot;: &#123;&#125;,
+      &quot;tag&quot;: &quot;blocked&quot;
+    &#125;
+  ],
+  &quot;routing&quot;: &#123;
+    &quot;rules&quot;: [
+      &#123;
+        &quot;type&quot;: &quot;field&quot;,
+        &quot;ip&quot;: [&quot;geoip:private&quot;],
+        &quot;outboundTag&quot;: &quot;blocked&quot;
+      &#125;
+    ]
+  &#125;
 &#125;
 </code></pre>
 <h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><pre><code class="bash">systemctl start v2ray
@@ -237,10 +247,10 @@ bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/mast
 </code></pre>
 <h3 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h3><pre><code class="bash">systemctl restart v2ray
 </code></pre>
-<h3 id="移除-V2Ray"><a href="#移除-V2Ray" class="headerlink" title="移除 V2Ray"></a>移除 V2Ray</h3><pre><code class="bash">bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh) 
+<h3 id="移除-V2Ray"><a href="#移除-V2Ray" class="headerlink" title="移除 V2Ray"></a>移除 V2Ray</h3><pre><code class="bash">bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
 --remove
 </code></pre>
-<h2 id="客户端下载"><a href="#客户端下载" class="headerlink" title="客户端下载"></a><strong>客户端下载</strong></h2><p>Web： <a target="_blank" rel="noopener" href="https://v2raya.org/">https://v2raya.org/</a><br>Win：<a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a><br>Linux：<a target="_blank" rel="noopener" href="https://v2raya.org/docs/prologue/installation/debian/">https://v2raya.org/docs/prologue/installation/debian/</a><br>Android：<a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayNG/releases">https://github.com/2dust/v2rayNG/releases</a> </p>
+<h2 id="客户端下载"><a href="#客户端下载" class="headerlink" title="客户端下载"></a><strong>客户端下载</strong></h2><p>Web： <a target="_blank" rel="noopener" href="https://v2raya.org/">https://v2raya.org/</a><br>Win：<a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a><br>Linux：<a target="_blank" rel="noopener" href="https://v2raya.org/docs/prologue/installation/debian/">https://v2raya.org/docs/prologue/installation/debian/</a><br>Android：<a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayNG/releases">https://github.com/2dust/v2rayNG/releases</a></p>
 
     </div>
     

@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>ssh | WorldPeace</title>
+        <title>使用ssh免密登录服务器 | WorldPeace</title>
         <meta name="author" content="XingHe" />
         <meta name="description" content="沉沦 坠落" />
         <meta name="keywords" content="" />
@@ -151,7 +151,7 @@
                 <div id="main" v-show="!loading">
                     <div class="article">
     <div>
-        <h1>ssh</h1>
+        <h1>使用ssh免密登录服务器</h1>
     </div>
     <div class="info">
         <span class="date">
@@ -162,11 +162,11 @@
         </span>
         
         <span class="category">
-            <a href="/categories/ssh/">
+            <a href="/categories/%E6%95%99%E7%A8%8B/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                ssh
+                教程
             </a>
         </span>
         
@@ -178,7 +178,12 @@
             
             <span class="tag">
                 
-                <a href="/tags/ssh/" style="color: #ffa2c4">ssh</a>
+                <a href="/tags/Linux/" style="color: #ffa2c4">Linux</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/ssh/" style="color: #03a9f4">ssh</a>
             </span>
             
         </span>
@@ -186,10 +191,10 @@
     </div>
     
     <div class="content" v-pre>
-        <p>使用SSH免密登录另一台服务器</p>
+        <p>使用 SSH 免密登录另一台服务器</p>
 <span id="more"></span>
 
-<h3 id="有两台服务器，服务器A（192-168-1-1）和服务器B（192-168-1-2），在A上实现免密登录服务器B"><a href="#有两台服务器，服务器A（192-168-1-1）和服务器B（192-168-1-2），在A上实现免密登录服务器B" class="headerlink" title="有两台服务器，服务器A（192.168.1.1）和服务器B（192.168.1.2），在A上实现免密登录服务器B"></a>有两台服务器，服务器A（192.168.1.1）和服务器B（192.168.1.2），在A上实现免密登录服务器B</h3><h2 id="一、先测试两台服务器是否可以ping通，确保网络通畅"><a href="#一、先测试两台服务器是否可以ping通，确保网络通畅" class="headerlink" title="一、先测试两台服务器是否可以ping通，确保网络通畅"></a>一、先测试两台服务器是否可以ping通，确保网络通畅</h2><pre><code class="bash">ping 192.168.1.2
+<h3 id="有两台服务器，服务器-A（192-168-1-1）和服务器-B（192-168-1-2），在-A-上实现免密登录服务器-B"><a href="#有两台服务器，服务器-A（192-168-1-1）和服务器-B（192-168-1-2），在-A-上实现免密登录服务器-B" class="headerlink" title="有两台服务器，服务器 A（192.168.1.1）和服务器 B（192.168.1.2），在 A 上实现免密登录服务器 B"></a>有两台服务器，服务器 A（192.168.1.1）和服务器 B（192.168.1.2），在 A 上实现免密登录服务器 B</h3><h2 id="一、先测试两台服务器是否可以-ping-通，确保网络通畅"><a href="#一、先测试两台服务器是否可以-ping-通，确保网络通畅" class="headerlink" title="一、先测试两台服务器是否可以 ping 通，确保网络通畅"></a>一、先测试两台服务器是否可以 ping 通，确保网络通畅</h2><pre><code class="bash">ping 192.168.1.2
 #PING 192.168.1.2 (192.168.1.2) 56(84) bytes of data.
 #64 bytes from 192.168.1.2: icmp_seq=1 ttl=128 time=1.44 ms
 #64 bytes from 192.168.1.2: icmp_seq=2 ttl=128 time=0.348 ms
@@ -201,7 +206,7 @@
 #9 packets transmitted, 9 received, 0% packet loss, time 8004ms
 #rtt min/avg/max/mdev = 0.263/2.674/16.224/4.971 ms
 </code></pre>
-<h2 id="二、在服务器A上生成公钥、私钥"><a href="#二、在服务器A上生成公钥、私钥" class="headerlink" title="二、在服务器A上生成公钥、私钥"></a>二、在服务器A上生成公钥、私钥</h2><p>可以使用 -t指定密钥类型，-b 指定大小，一般直接执行最普通的<code>ssh-keygen</code>就可以，弹出来的提示直接默认回车</p>
+<h2 id="二、在服务器-A-上生成公钥、私钥"><a href="#二、在服务器-A-上生成公钥、私钥" class="headerlink" title="二、在服务器 A 上生成公钥、私钥"></a>二、在服务器 A 上生成公钥、私钥</h2><p>可以使用 -t 指定密钥类型，-b 指定大小，一般直接执行最普通的<code>ssh-keygen</code>就可以，弹出来的提示直接默认回车</p>
 <pre><code class="bash"># ssh-keygen -t ed25519
 # ssh-keygen -t rsa -b 4096
 ssh-keygen
@@ -209,7 +214,7 @@ ssh-keygen
 <h2 id="三、拷贝公钥到目标服务器"><a href="#三、拷贝公钥到目标服务器" class="headerlink" title="三、拷贝公钥到目标服务器"></a>三、拷贝公钥到目标服务器</h2><p>-i 指定刚刚生成的公钥地址</p>
 <pre><code class="bash">ssh-copy-id -i /root/.ssh/id_rsa.pub root@192.168.1.2
 </code></pre>
-<h2 id="四、连接"><a href="#四、连接" class="headerlink" title="四、连接"></a>四、连接</h2><p>尝试连接服务器B</p>
+<h2 id="四、连接"><a href="#四、连接" class="headerlink" title="四、连接"></a>四、连接</h2><p>尝试连接服务器 B</p>
 <pre><code class="bash">ssh root@192.168.1.2
 </code></pre>
 

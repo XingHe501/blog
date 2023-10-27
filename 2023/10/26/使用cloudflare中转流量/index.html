@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Cloudflare | WorldPeace</title>
+        <meta name="author" content="XingHe" />
+        <meta name="description" content="沉沦 坠落" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/favicon.png" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.staticfile.org/waline/2.14.8/waline.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline.min.css" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline-meta.min.css" />
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <div id="desktop-menu">
+        <a class="title" href="/">
+            <span>WORLDPEACE</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;WORLDPEACE</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </div>
+</nav>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <transition name="into">
+                <div id="main" v-show="!loading">
+                    <div class="article">
+    <div>
+        <h1>Cloudflare</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/26
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E6%95%99%E7%A8%8B/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                教程
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Cloudflare/" style="color: #ffa2c4">Cloudflare</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <span id="more"></span>
+
+<blockquote>
+<p>本文转载自：<a target="_blank" rel="noopener" href="https://v2xtls.org/v2ray%e4%bd%bf%e7%94%a8cloudflare%e4%b8%ad%e8%bd%ac%e6%b5%81%e9%87%8f%ef%bc%8c%e6%8b%af%e6%95%91%e8%a2%ab%e5%a2%99ip/">使用 cf 拯救被墙的服务器</a>, 如文中内容有错误请到原文查看</p>
+</blockquote>
+<h2 id="第一步：注册：Cloudflare-账号"><a href="#第一步：注册：Cloudflare-账号" class="headerlink" title="第一步：注册：Cloudflare 账号"></a>第一步：注册：Cloudflare 账号</h2><ol>
+<li><p><strong>如果已有账号直接跳到第二步</strong>。打开 <a target="_blank" rel="noopener" href="https://www.cloudflare.com/">https://www.cloudflare.com/</a>，点击右上角的 “Sign up”，填入你的电子邮箱，设置好账户密码(至少 8 位，必须包含数字和特殊字符)，点击“create account”；</p>
+</li>
+<li><p>界面跳转到添加网站界面，输入你的域名，例如 hijk.pw，注意没有前面的 www。然后点击 “add site”；</p>
+</li>
+<li><p>界面进入选择套餐界面，点最下面的“free”，然后点”continue”</p>
+</li>
+<li><p>接下来 CF 会扫描你域名的解析记录，扫描完成后大部分记录都给你设置好了。接着点击“continue”；</p>
+</li>
+<li><p>界面进入更改 NS 解析服务器提示页面，记住类似下图中的两行 dns 记录：</p>
+</li>
+</ol>
+<p><img src="/images/%E4%BD%BF%E7%94%A8cloudflare%E4%B8%AD%E8%BD%AC%E6%B5%81%E9%87%8F/1698308935455.png" alt="change your nameservers"></p>
+<p>这一步到此结束，不要关闭 Cloudflare 的网页</p>
+<h2 id="第二步：更改-DNS-解析服务器"><a href="#第二步：更改-DNS-解析服务器" class="headerlink" title="第二步：更改 DNS 解析服务器"></a>第二步：更改 DNS 解析服务器</h2><p>这一步以 Namesilo 为例，讲解将域名的 dns 转移到 cloudflare 的过程，其他域名注册商的域名，请参考官方网站。</p>
+<ol>
+<li><p>打开 <a target="_blank" rel="noopener" href="https://www.namesilo.com/">https://www.namesilo.com/</a>, 点击“login”，输入用户名和密码，点击“submit”登录</p>
+</li>
+<li><p>点击“My Account”, 点击左侧“Domain Manager”，进入域名列表:</p>
+</li>
+<li><p>勾选域名，然后点击上方的“Change Nameservers”：</p>
+</li>
+</ol>
+<p><img src="/images/%E4%BD%BF%E7%94%A8cloudflare%E4%B8%AD%E8%BD%AC%E6%B5%81%E9%87%8F/namesilo-change-ns.png" alt="change nameservers"></p>
+<ol start="4">
+<li>进入填写 dns 服务器界面，把默认的三个删掉，在第一栏和第二栏填上 cloudflare 界面上出现的两个域名，例如：<code>paris.ns.cloudflare.com</code> 和 <code>razvan.ns.cloudflare.com</code></li>
+</ol>
+<p><img src="/images/%E4%BD%BF%E7%94%A8cloudflare%E4%B8%AD%E8%BD%AC%E6%B5%81%E9%87%8F/namesilo-ns-manage.png" alt="ns manager"></p>
+<ol start="5">
+<li>确认无误后，点击”submit”按钮提交，更改就完成了。</li>
+</ol>
+<h2 id="第三步：回到-Cloudflare-确认信息。"><a href="#第三步：回到-Cloudflare-确认信息。" class="headerlink" title="第三步：回到 Cloudflare 确认信息。"></a>第三步：回到 Cloudflare 确认信息。</h2><ol>
+<li><p>回到 cloudflare 网页上，点击”done, check nameservers”按钮，“Quick Start Guide”点击下一步即可。</p>
+</li>
+<li><p>点击左侧“DNS”, 再点击右侧“add record”：</p>
+</li>
+</ol>
+<p><img src="/../images/%E4%BD%BF%E7%94%A8cloudflare%E4%B8%AD%E8%BD%AC%E6%B5%81%E9%87%8F/cf-add-record.png" alt="add-record"></p>
+<p>即使记录已经存在，也可以随时修改别名和开关 cf 中转</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ol>
+<li><p>dns 解析迁移到 cloudflare，并且设置了经过 cloudflare 的代理（记录上有一朵黄色的云），ping 伪装域名出现的是 cloudflare 的 ip，而不是你的服务器 ip；</p>
+</li>
+<li><p>在 cf 上添加新的解析记录，默认是代理&#x2F;中转状态。如果你需要获取 let’s encrypt 证书，可以先禁用代理（点一下那朵云变成灰色），获取完证书再启用中转；</p>
+</li>
+<li><p>Namesilo 刷新记录比较慢，如果 cloudflare 提示 DNS 解析未改过来，多等一会。</p>
+</li>
+</ol>
+
+    </div>
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="waline-container"></div>
+    </div>
+    
+    
+    
+</div>
+
+                    <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 WorldPeace
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;XingHe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+                </div>
+            </transition>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+<script>
+    Waline.init({
+        el: "#waline-container",
+        serverURL: "https://my-blog-4448youd2-xinghe501.vercel.app/",
+        commentCount: true,
+        pageview: false,
+        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
+        meta: "nick,mail,link".split(","),
+        requiredMeta: "nick".split(","),
+        lang: "zh-CN",
+        wordLimit: 0,
+        pageSize: "10",
+        login: "enable",
+        
+        locale: {},
+        
+    });
+</script>
+
+
+
+        
+    </body>
+</html>

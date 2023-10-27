@@ -162,11 +162,11 @@
         </span>
         
         <span class="category">
-            <a href="/categories/python/">
+            <a href="/categories/%E6%95%99%E7%A8%8B/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                python
+                教程
             </a>
         </span>
         
@@ -178,12 +178,12 @@
             
             <span class="tag">
                 
-                <a href="/tags/pyenv/" style="color: #ff7d73">pyenv</a>
+                <a href="/tags/Linux/" style="color: #ff7d73">Linux</a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/python/" style="color: #00bcd4">python</a>
+                <a href="/tags/python/" style="color: #ff7d73">python</a>
             </span>
             
         </span>
@@ -204,9 +204,9 @@
 <li>Searches for commands from <strong>multiple versions of Python at a time</strong>.<br>This may be helpful to test across Python versions with <a target="_blank" rel="noopener" href="https://pypi.python.org/pypi/tox">tox</a>.</li>
 </ul>
 <h3 id="In-contrast-with-pythonbrew-and-pythonz-pyenv-does-not…"><a href="#In-contrast-with-pythonbrew-and-pythonz-pyenv-does-not…" class="headerlink" title="In contrast with pythonbrew and pythonz, pyenv does not…"></a>In contrast with pythonbrew and pythonz, pyenv <em>does not…</em></h3><ul>
-<li><strong>Depend on Python itself.</strong> pyenv was made from pure shell scripts.<br>  There is no bootstrap problem of Python.</li>
-<li><strong>Need to be loaded into your shell.</strong> Instead, pyenv’s shim<br>  approach works by adding a directory to your <code>PATH</code>.</li>
-<li><strong>Manage virtualenv.</strong> Of course, you can create <a target="_blank" rel="noopener" href="https://pypi.python.org/pypi/virtualenv">virtualenv</a><br>  yourself, or <a target="_blank" rel="noopener" href="https://github.com/pyenv/pyenv-virtualenv">pyenv-virtualenv</a><br>  to automate the process.</li>
+<li><strong>Depend on Python itself.</strong> pyenv was made from pure shell scripts.<br>There is no bootstrap problem of Python.</li>
+<li><strong>Need to be loaded into your shell.</strong> Instead, pyenv’s shim<br>approach works by adding a directory to your <code>PATH</code>.</li>
+<li><strong>Manage virtualenv.</strong> Of course, you can create <a target="_blank" rel="noopener" href="https://pypi.python.org/pypi/virtualenv">virtualenv</a><br>yourself, or <a target="_blank" rel="noopener" href="https://github.com/pyenv/pyenv-virtualenv">pyenv-virtualenv</a><br>to automate the process.</li>
 </ul>
 <hr>
 <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
@@ -325,7 +325,7 @@ brew install pyenv
 <p>For more details visit our other project:<br><a target="_blank" rel="noopener" href="https://github.com/pyenv/pyenv-installer">https://github.com/pyenv/pyenv-installer</a></p>
 <h4 id="Basic-GitHub-Checkout"><a href="#Basic-GitHub-Checkout" class="headerlink" title="Basic GitHub Checkout"></a>Basic GitHub Checkout</h4><p>This will get you going with the latest version of Pyenv and make it<br>easy to fork and contribute any changes back upstream.</p>
 <ul>
-<li><strong>Check out Pyenv where you want it installed.</strong><br> A good place to choose is <code>$HOME/.pyenv</code> (but you can install it somewhere else):<pre><code>git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+<li><strong>Check out Pyenv where you want it installed.</strong><br>A good place to choose is <code>$HOME/.pyenv</code> (but you can install it somewhere else):<pre><code>git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 </code></pre>
 </li>
 <li>Optionally, try to compile a dynamic Bash extension to speed up Pyenv. Don’t<br>worry if it fails; Pyenv will still work normally:<pre><code>cd ~/.pyenv &amp;&amp; src/configure &amp;&amp; make -C src
@@ -385,16 +385,16 @@ set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 <p>Now, add this to <code>~/.config/fish/config.fish</code>:</p>
 <pre><code class="fish">pyenv init - | source
 </code></pre>
+<p><strong>Bash warning</strong>: There are some systems where the <code>BASH_ENV</code> variable is configured<br>to point to <code>.bashrc</code>. On such systems, you should almost certainly put the<br><code>eval &quot;$(pyenv init -)&quot;</code> line into <code>.bash_profile</code>, and <strong>not</strong> into <code>.bashrc</code>. Otherwise, you<br>may observe strange behaviour, such as <code>pyenv</code> getting into an infinite loop.<br>See <a target="_blank" rel="noopener" href="https://github.com/pyenv/pyenv/issues/264">#264</a> for details.</p>
+<p><strong>Proxy note</strong>: If you use a proxy, export <code>http_proxy</code> and <code>https_proxy</code>, too.</p>
 </li>
 </ul>
-<p>   <strong>Bash warning</strong>: There are some systems where the <code>BASH_ENV</code> variable is configured<br>   to point to <code>.bashrc</code>. On such systems, you should almost certainly put the<br>   <code>eval &quot;$(pyenv init -)&quot;</code> line into <code>.bash_profile</code>, and <strong>not</strong> into <code>.bashrc</code>. Otherwise, you<br>   may observe strange behaviour, such as <code>pyenv</code> getting into an infinite loop.<br>   See <a target="_blank" rel="noopener" href="https://github.com/pyenv/pyenv/issues/264">#264</a> for details.</p>
-<p>   <strong>Proxy note</strong>: If you use a proxy, export <code>http_proxy</code> and <code>https_proxy</code>, too.</p>
-<p>   In MacOS, you might also want to install <a target="_blank" rel="noopener" href="https://fig.io/">Fig</a> which<br>provides alternative shell completions for many command line tools with an<br>IDE-like popup interface in the terminal window.<br>(Note that their completions are independent from Pyenv’s codebase<br>so they might be slightly out of sync for bleeding-edge interface changes.)</p>
-<h3 id="Restart-your-shell"><a href="#Restart-your-shell" class="headerlink" title="Restart your shell"></a>Restart your shell</h3><p>  for the <code>PATH</code> changes to take effect.</p>
+<p>In MacOS, you might also want to install <a target="_blank" rel="noopener" href="https://fig.io/">Fig</a> which<br>provides alternative shell completions for many command line tools with an<br>IDE-like popup interface in the terminal window.<br>(Note that their completions are independent from Pyenv’s codebase<br>so they might be slightly out of sync for bleeding-edge interface changes.)</p>
+<h3 id="Restart-your-shell"><a href="#Restart-your-shell" class="headerlink" title="Restart your shell"></a>Restart your shell</h3><p>for the <code>PATH</code> changes to take effect.</p>
 <pre><code class="sh">exec &quot;$SHELL&quot;
 </code></pre>
-<h3 id="Install-Python-build-dependencies"><a href="#Install-Python-build-dependencies" class="headerlink" title="Install Python build dependencies"></a>Install Python build dependencies</h3><p>  <a target="_blank" rel="noopener" href="https://github.com/pyenv/pyenv/wiki#suggested-build-environment"><strong>Install Python build dependencies</strong></a><br>  before attempting to install a new Python version.</p>
-<p>  You can now begin using Pyenv.</p>
+<h3 id="Install-Python-build-dependencies"><a href="#Install-Python-build-dependencies" class="headerlink" title="Install Python build dependencies"></a>Install Python build dependencies</h3><p><a target="_blank" rel="noopener" href="https://github.com/pyenv/pyenv/wiki#suggested-build-environment"><strong>Install Python build dependencies</strong></a><br>before attempting to install a new Python version.</p>
+<p>You can now begin using Pyenv.</p>
 <hr>
 <h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="Install-additional-Python-versions"><a href="#Install-additional-Python-versions" class="headerlink" title="Install additional Python versions"></a>Install additional Python versions</h3><p>To install additional Python versions, use <a href="COMMANDS.md#pyenv-install"><code>pyenv install</code></a>.</p>
 <p>For example, to download and install Python 3.10.4, run:</p>
@@ -472,13 +472,13 @@ exec $SHELL
 </code></pre>
 <p>The simplicity of pyenv makes it easy to temporarily disable it, or<br>uninstall from the system.</p>
 <ol>
-<li><p>To <strong>disable</strong> Pyenv managing your Python versions, simply remove the<br>  <code>pyenv init</code> invocations from your shell startup configuration. This will<br>  remove Pyenv shims directory from <code>PATH</code>, and future invocations like<br>  <code>python</code> will execute the system Python version, as it was before Pyenv.</p>
-<p> <code>pyenv</code> will still be accessible on the command line, but your Python<br> apps won’t be affected by version switching.</p>
+<li><p>To <strong>disable</strong> Pyenv managing your Python versions, simply remove the<br><code>pyenv init</code> invocations from your shell startup configuration. This will<br>remove Pyenv shims directory from <code>PATH</code>, and future invocations like<br><code>python</code> will execute the system Python version, as it was before Pyenv.</p>
+<p><code>pyenv</code> will still be accessible on the command line, but your Python<br>apps won’t be affected by version switching.</p>
 </li>
-<li><p>To completely <strong>uninstall</strong> Pyenv, remove <em>all</em> Pyenv configuration lines<br>  from your shell startup configuration, and then remove<br>  its root directory. This will <strong>delete all Python versions</strong> that were<br>  installed under the <code>$(pyenv root)/versions/</code> directory:</p>
+<li><p>To completely <strong>uninstall</strong> Pyenv, remove <em>all</em> Pyenv configuration lines<br>from your shell startup configuration, and then remove<br>its root directory. This will <strong>delete all Python versions</strong> that were<br>installed under the <code>$(pyenv root)/versions/</code> directory:</p>
 <pre><code class="sh">rm -rf $(pyenv root)
 </code></pre>
-<p> If you’ve installed Pyenv using a package manager, as a final step,<br> perform the Pyenv package removal. For instance, for Homebrew:</p>
+<p>If you’ve installed Pyenv using a package manager, as a final step,<br>perform the Pyenv package removal. For instance, for Homebrew:</p>
 <pre><code>brew uninstall pyenv
 </code></pre>
 </li>
