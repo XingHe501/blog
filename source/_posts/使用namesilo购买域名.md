@@ -3,6 +3,7 @@ title: 使用namesilo购买域名
 description: ""
 date: 2023-10-26 17:28:02
 tags:
+  - namesilo
 categories: 教程
 ---
 

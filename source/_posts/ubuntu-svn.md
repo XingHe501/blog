@@ -3,14 +3,14 @@ title: 解决Ubuntu使用SVN命令每次都要输入密码的问题
 tags:
   - ubuntu
   - svn
-categories: question
-description: '起因是公司要用到WSL进行开发，在windows下安装了Ubuntu使用svn co或者svn up的时候每次都要输入密码'
+categories: 教程
+description: "起因是公司要用到WSL进行开发，在windows下安装了Ubuntu使用svn co或者svn up的时候每次都要输入密码"
 date: 2023-05-06 18:32:13
 ---
 
 <!-- more -->
 
-**P.S. 这里可以直接从步骤3开始，也可以从步骤1开始**
+**P.S. 这里可以直接从步骤 3 开始，也可以从步骤 1 开始**
 
 # 1. 直接删除掉原来的配置
 
@@ -18,7 +18,7 @@ date: 2023-05-06 18:32:13
 rm -rf ~/.subversion
 ```
 
-# 2. 执行一次svn命令输入账号密码
+# 2. 执行一次 svn 命令输入账号密码
 
 ```bash
 svn up
@@ -34,7 +34,7 @@ svn up
 
 # 3. 修改生成的文件
 
-``` bash
+```bash
 
 cd ~/.subversion/auth/svn.simple/
 vim 201ec234477d9acdbef432a0ff4519af
@@ -43,8 +43,9 @@ vim 201ec234477d9acdbef432a0ff4519af
 vim ~/.subversion/auth/svn.simple/201ec234477d9acdbef432a0ff4519af
 ```
 
-# 4.修改内容如下, passtype固定是simple, K和V后面的数字分别代表key和value的长度, 注意SVN服务器的地址
-``` text
+# 4.修改内容如下, passtype 固定是 simple, K 和 V 后面的数字分别代表 key 和 value 的长度, 注意 SVN 服务器的地址
+
+```text
 K 15
 svn:realmstring
 V 44

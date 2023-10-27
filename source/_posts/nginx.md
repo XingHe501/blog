@@ -1,8 +1,10 @@
 ---
 title: Nginx安装与配置
 date: 2023-05-05 11:01:47
-tags: nginx
-categories: Linux
+tags:
+  - nginx
+  - Linux
+categories: 教程
 description: ""
 ---
 
@@ -12,11 +14,11 @@ description: ""
 yum -y install make zlib zlib-devel gcc-c++ libtool  openssl openssl-devel
 ```
 
-## 二、安装pcre
+## 二、安装 pcre
 
-PCRE的作用主要是让nginx支持rewrite功能
+PCRE 的作用主要是让 nginx 支持 rewrite 功能
 
-1. 下载PCER安装包，下载地址：http://downloads.sourceforge.net/project/pcre/pcre/8.35/pcre-8.35.tar.gz
+1. 下载 PCER 安装包，下载地址：http://downloads.sourceforge.net/project/pcre/pcre/8.35/pcre-8.35.tar.gz
 
 ```shell
 [root@bogon src]# cd /usr/local/src/
@@ -34,9 +36,9 @@ PCRE的作用主要是让nginx支持rewrite功能
     pcre-config --version
 ```
 
-## 三、安装nginx
+## 三、安装 nginx
 
-1. 下载nginx，Centos8.4安装版本：https://nginx.org/download/nginx-1.20.2.tar.gz
+1. 下载 nginx，Centos8.4 安装版本：https://nginx.org/download/nginx-1.20.2.tar.gz
 
 ```shell
 [root@bogon src]# cd /usr/local/src/
@@ -69,34 +71,34 @@ cd nginx-1.20.2
  source /etc/profile
 ```
 
-6. 查看nginx版本
+6. 查看 nginx 版本
 
 ```shell
 nginx -v
 ```
 
-# 四、Nginx的设置
+# 四、Nginx 的设置
 
-``` conf
+```conf
     # Nginx目录浏览功能
     autoindex on;
     # 默认为on，显示出文件的确切大小，单位是bytes
     # 显示出文件的大概大小，单位是kB或者MB或者GB
     autoindex_exact_size off;
     #默认为off，显示的文件时间为GMT时间。
-    #改为on后，显示的文件时间为文件的服务器时间  
+    #改为on后，显示的文件时间为文件的服务器时间
     autoindex_localtime on;
     # 让浏览器不保存临时文件
     add_header Cache-Control no-store;
     # 避免中文乱码
-    charset utf-8,gbk; 
+    charset utf-8,gbk;
     # 如果希望请求文件是下载而不是显示内容，可以通过添加下面参数实现：
     add_header Content-Disposition attachment;
 ```
 
 # 五、Nginx 设置开机启动
 
-1.创建nginx.service 文件
+1.创建 nginx.service 文件
 
 ```shell
 vim /etc/systemd/system/nginx.service
