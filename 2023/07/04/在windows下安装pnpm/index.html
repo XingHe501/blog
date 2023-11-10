@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Windows安装Python3.11安装 | WorldPeace</title>
+        <title>在Windows下安装pnpm | WorldPeace</title>
         <meta name="author" content="XingHe" />
         <meta name="description" content="沉沦 坠落" />
         <meta name="keywords" content="" />
@@ -151,14 +151,14 @@
                 <div id="main" v-show="!loading">
                     <div class="article">
     <div>
-        <h1>Windows安装Python3.11安装</h1>
+        <h1>在Windows下安装pnpm</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2023/5/30
+            2023/7/4
         </span>
         
         <span class="category">
@@ -178,7 +178,12 @@
             
             <span class="tag">
                 
-                <a href="/tags/python/" style="color: #00a596">python</a>
+                <a href="/tags/pnpm/" style="color: #00bcd4">pnpm</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/nodejs/" style="color: #00a596">nodejs</a>
             </span>
             
         </span>
@@ -186,59 +191,17 @@
     </div>
     
     <div class="content" v-pre>
-        <h1 id="一、下载"><a href="#一、下载" class="headerlink" title="一、下载"></a>一、下载</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://www.python.org/ftp/python/3.11.3/python-3.11.3-amd64.exe">Python3.11.3</a></li>
-<li>选择需要的版本：<a target="_blank" rel="noopener" href="https://www.python.org/downloads/windows/">官方网站</a></li>
-</ul>
-<h1 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h1><p>省流：</p>
-<ol>
-<li>打开安装包</li>
-<li>勾选 <code>Add python.exe to Path</code>, 点击<code>Customize installation</code>.</li>
-<li><code>Next</code>.</li>
-<li>勾选<code>Install Python 3.11 for all users</code>.</li>
-<li>选择安装路径，点击<code>Install</code></li>
-<li>打开<code>cmd</code>, 输入<code>python -V</code>查看 python 版本，如果输出版本代表安装成功</li>
-</ol>
-<h2 id="2-1-选项详解"><a href="#2-1-选项详解" class="headerlink" title="2.1 选项详解"></a>2.1 选项详解</h2><p>点击 <code>Customize Installaton</code> 进行下一步</p>
-<ul>
-<li><code>Install Now</code>：直接安装到当前的用户目录</li>
-<li><code>Customize Installation</code>: 自定义安装</li>
-<li><code>Use admin privileges when install py.exe</code>: 安装 python 时使用 admin 权限。<strong>必选</strong></li>
-<li><code>Add python.exe to PATH</code>: 把 python.exe 添加到环境变量。<strong>必选</strong></li>
-</ul>
-<p><img src="/images/python-tutorial/uTools_1685436608857.png"></p>
-<h2 id="2-2-可选功能-f"><a href="#2-2-可选功能-f" class="headerlink" title="2.2 可选功能 f"></a>2.2 可选功能 f</h2><p>直接点击<code>Next</code>进行下一步即可</p>
-<ul>
-<li><code>Documentation</code>: Python 文档。 默认安装。</li>
-<li><code>pip</code>: Python 的包管理工具，可以用来下载安装 Python 的其他包。默认安装。</li>
-<li><code>tcl/tk and IDLE</code>: <code>tkinter</code> 和 <code>IDLE</code>安装环境。默认安装。</li>
-<li><code>Python test suite</code>: 标准库测试套件。默认安装。</li>
-<li><code>py launcher</code>; <code>for all users(requires admin privileges)</code>： 安装全局的 python 解释器，以便更简单的启动 python； 默认安装。</li>
-</ul>
-<p><img src="/images/python-tutorial/uTools_1685437140151.png"></p>
-<h2 id="2-3-进阶选择"><a href="#2-3-进阶选择" class="headerlink" title="2.3 进阶选择"></a>2.3 进阶选择</h2><p><code>Customize install location</code>选择 Python 安装地址，点击<code>Install</code> 进行安装</p>
-<p><img src="/images/python-tutorial/uTools_1685440509953.png"></p>
-<ul>
-<li><code>Install Python 3.11 for all users</code>: 安装在全局位置，勾选此选项,安装路径会自动更改到<code>Program Files</code>路径下。如图</li>
-</ul>
-<p><img src="/images/python-tutorial/uTools_1685440749172.png"></p>
-<ul>
-<li><p><code>Associate files with Python</code>: 把文件跟 python 相关联，需要 py 解释器</p>
-</li>
-<li><p><code>Create shortcuts for installed applications</code>: 创建快捷方式</p>
-</li>
-<li><p><code>Add Python to environment variables</code>: 添加到环境变量</p>
-</li>
-<li><p><code>Precompile standard libary</code>: 预编译标准库。可选</p>
-</li>
-<li><p><code>Download debugging symbols</code>: 安装调试模块</p>
-</li>
-<li><p><code>Download debug binaries</code>: 下载 debug 二进制，需要 VS 2017 或者更高版本</p>
-</li>
-</ul>
-<h1 id="三、查看-python-版本"><a href="#三、查看-python-版本" class="headerlink" title="三、查看 python 版本"></a>三、查看 python 版本</h1><p>打开<code>cmd</code>, 输入<code>python -V</code>命令</p>
-<pre><code class="cmd">&gt; python -V
-Python 3.11.2
+        <p>在自己电脑上安装 pnpm 时遇到了一些问题，无法安装</p>
+<span id="more"></span>
+
+<h1 id="使用-npm-安装-pnpm-完成之后，运行-pnpm-提示无法把-C-盘路径下的-pnpm-视作命令"><a href="#使用-npm-安装-pnpm-完成之后，运行-pnpm-提示无法把-C-盘路径下的-pnpm-视作命令" class="headerlink" title="使用 npm 安装 pnpm 完成之后，运行 pnpm 提示无法把 C 盘路径下的 pnpm 视作命令"></a>使用 npm 安装 pnpm 完成之后，运行 pnpm 提示无法把 C 盘路径下的 pnpm 视作命令</h1><p>在 stackflow 上找到了解决问题，原文：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/75365692/how-to-install-pnpm-on-windows">How to install pnpm on Windows?</a></p>
+<h2 id="Step-1-Open-command-and-run-this-command"><a href="#Step-1-Open-command-and-run-this-command" class="headerlink" title="Step.1 Open command and run this command."></a>Step.1 Open command and run this command.</h2><pre><code class="shell">set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+</code></pre>
+<p>When you run this command, you can see that your system has set all policies for the current user as remotely. It will take few seconds to complete this process.</p>
+<h2 id="Step-2-Now-you-have-to-run-the-second-command-on-your-system-This-command-is"><a href="#Step-2-Now-you-have-to-run-the-second-command-on-your-system-This-command-is" class="headerlink" title="Step 2: Now you have to run the second command on your system. This command is:"></a>Step 2: Now you have to run the second command on your system. This command is:</h2><pre><code class="shell">Get-ExecutionPolicy
+</code></pre>
+<p>When you have run this command your system has a show “RemoteSigned”. If you have received this message, then your problem will be solved. Now you have to go to the next step to view the list of policies which policy has been updated by the last commands.</p>
+<h2 id="Step-3-To-view-their-policy-you-need-to-run-this-command-in-your-command-prompt"><a href="#Step-3-To-view-their-policy-you-need-to-run-this-command-in-your-command-prompt" class="headerlink" title="Step 3: To view their policy, you need to run this command in your command prompt:"></a>Step 3: To view their policy, you need to run this command in your command prompt:</h2><pre><code class="shell">Get-ExecutionPolicy -list
 </code></pre>
 
     </div>

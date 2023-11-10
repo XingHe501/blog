@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Go test命令 | WorldPeace</title>
+        <meta name="author" content="XingHe" />
+        <meta name="description" content="沉沦 坠落" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/favicon.png" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.staticfile.org/waline/2.14.8/waline.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline.min.css" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline-meta.min.css" />
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <div id="desktop-menu">
+        <a class="title" href="/">
+            <span>WORLDPEACE</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;WORLDPEACE</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </div>
+</nav>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <transition name="into">
+                <div id="main" v-show="!loading">
+                    <div class="article">
+    <div>
+        <h1>Go test命令</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/11/7
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/golang/" style="color: #03a9f4">golang</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>Go 语言拥有一套单元测试和性能测试系统，仅需要添加很少的代码就可以快速测试一段需求代码。</p>
+<span id="more"></span>
+
+<p>go test 命令，会自动读取源码目录下面名为 <code>*_test.go</code> 的文件，生成并运行测试用的可执行文件。</p>
+<h5 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h5><p>单元测试（unit testing），是指对软件中的最小可测试单元进行检查和验证。对于单元测试中单元的含义，一般要根据实际情况去判定其具体含义，如 C 语言中单元指一个函数，Java 里单元指一个类，图形化的软件中可以指一个窗口或一个菜单等。总的来说，单元就是人为规定的最小的被测功能模块。</p>
+<p>单元测试是在软件开发过程中要进行的最低级别的测试活动，软件的独立单元将在与程序的其他部分相隔离的情况下进行测试。</p>
+<h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h2><p>要开始一个单元测试，需要准备一个 go 源码文件，在命名文件时需要让文件必须以_test 结尾。默认的情况下，go test 命令不需要任何的参数，它会自动把你源码包下面所有 test 文件测试完毕，当然你也可以带上参数。</p>
+<p>常用参数：</p>
+<ul>
+<li><code>-bench regexp</code>, 执行相应的 benchmarks, 例如 <code>-bench=.</code> ;</li>
+<li><code>-cover</code>, 开启测试覆盖率</li>
+<li><code>-run regexp</code>, 只运行 <code>regexp</code> 匹配的函数，例如 <code>-run=Array</code> 那么就执行包含有 <code>Array</code> 开头的函数；</li>
+<li><code>-v</code>, 显示测试的详细命令</li>
+</ul>
+<p>单元测试源码文件可以由多个测试用例组成，每个测试用例函数需要以<code>Test</code>为前缀，例如：</p>
+<pre><code class="go">func TestXXX( t *testing.T )
+</code></pre>
+<ul>
+<li>测试用例文件不会参与正常源码编译，不会被包含到可执行文件中。</li>
+<li>测试用例文件使用<code>go test</code>指令来执行，没有也不需要 <code>main()</code> 作为函数入口。所有在以<code>_test</code>结尾的源码内以<code>Test</code>开头的函数会自动被执行。</li>
+<li>_测试用例可以不传入 <code>*testing.T</code> 参数。</li>
+</ul>
+<p>示例代码</p>
+<pre><code class="go">import &quot;testing&quot;
+
+func TestHelloWorld(t *testing.T)&#123;
+  t.Log(&quot;hello world&quot;)
+&#125;
+</code></pre>
+<ul>
+<li>单元测试文件 (*_test.go) 里的测试入口必须以 Test 开始，参数为 *testing.T 的函数。一个单元测试文件可以有多个测试入口。</li>
+</ul>
+<h4 id="1-单元测试命令行"><a href="#1-单元测试命令行" class="headerlink" title="1) 单元测试命令行"></a>1) 单元测试命令行</h4><p>单元测试使用<code>go test</code>命令启动，如：</p>
+<pre><code class="bash">$ go test src/gopl.io/ch2/testecho/main_test.go
+ok          command-line-arguments        0.001s
+
+$ go test -v src/gopl.io/ch2/testecho/main_test.go
+=== RUN   TestHelloWorld
+    main_test.go:6: hello world
+--- PASS: TestHelloWorld (0.00s)
+PASS
+ok      command-line-arguments  0.001s
+</code></pre>
+<p>代码说明：</p>
+<ul>
+<li>ok 表示测试通过，<code>command-line-arguments</code> 是测试用例需要用到的一个包名，<code>0.001s</code> 表示测试花费的时间。</li>
+<li>附加参数 <code>-v</code> 可以在测试时显示详细的流程。</li>
+</ul>
+<h4 id="2-运行指定单元的测试用例"><a href="#2-运行指定单元的测试用例" class="headerlink" title="2) 运行指定单元的测试用例"></a>2) 运行指定单元的测试用例</h4><pre><code class="go">import &quot;testing&quot;
+
+func TestA(t *testing.T) &#123;
+    t.Log(&quot;A&quot;)
+&#125;
+
+func TestAK(t *testing.T) &#123;
+    t.Log(&quot;AK&quot;)
+&#125;
+
+func TestB(t *testing.T) &#123;
+    t.Log(&quot;B&quot;)
+&#125;
+
+func TestC(t *testing.T) &#123;
+    t.Log(&quot;C&quot;)
+&#125;
+</code></pre>
+<p>指定 TestA 进行测试：</p>
+<pre><code class="bash">$ go test -v -run TestA src/gopl.io/ch2/testecho/select_test.go
+
+=== RUN   TestA
+    select_test.go:6: A
+--- PASS: TestA (0.00s)
+=== RUN   TestAK
+    select_test.go:10: AK
+--- PASS: TestAK (0.00s)
+PASS
+ok      command-line-arguments  0.001s
+</code></pre>
+<p>TestA 和 TestAK 的测试用例都被执行，原因是<code>-run</code>跟随的测试用例的名称支持正则表达式，使用<code>-run TestA$</code>即可只执行 TestA 测试用例。</p>
+<h4 id="3-标记单元测试结果"><a href="#3-标记单元测试结果" class="headerlink" title="3) 标记单元测试结果"></a>3) 标记单元测试结果</h4><p>当需要终止当前测试用例时，可以使用<code>FailNow</code>,参考一下代码：</p>
+<pre><code class="go">func TestFailNow(t *testing.T) &#123;
+    fmt.Println(&quot;11111&quot;)
+    t.FailNow()
+    fmt.Println(&quot;22222&quot;)
+&#125;
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="bash">Running tool: /usr/local/go/bin/go test -timeout 30s -run ^TestFailNow$ gopl.io/ch2/testecho
+
+11111
+--- FAIL: TestFailNow (0.00s)
+FAIL
+FAIL	gopl.io/ch2/testecho	0.001s
+FAIL
+</code></pre>
+<p>还有一种只标记错误不终止测试的方法，使用<code>Fail</code>：</p>
+<pre><code class="go">func TestFail(t *testing.T) &#123;
+    fmt.Println(&quot;11111&quot;)
+    t.Fail()
+    fmt.Println(&quot;22222&quot;)
+&#125;
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="bash">Running tool: /usr/local/go/bin/go test -timeout 30s -run ^TestFail$ gopl.io/ch2/testecho
+
+11111
+22222
+--- FAIL: TestFail (0.00s)
+FAIL
+FAIL	gopl.io/ch2/testecho	0.001s
+FAIL
+</code></pre>
+<h4 id="4-单元测试日志"><a href="#4-单元测试日志" class="headerlink" title="4) 单元测试日志"></a>4) 单元测试日志</h4><p>每个测试用例可能并发执行，使用 testing.T 提供的日志输出可以保证日志跟随这个测试上下文一起打印输出。testing.T 提供了几种日志输出方法，详见下表所示。</p>
+<center>
+单元测试框架提供的日志方法
+
+<table>
+<thead>
+<tr>
+<th align="center">方 法</th>
+<th>备 注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Log</td>
+<td>打印日志，同时结束测试</td>
+</tr>
+<tr>
+<td align="center">Logf</td>
+<td>格式化打印日志，同时结束测试</td>
+</tr>
+<tr>
+<td align="center">Error</td>
+<td>打印错误日志，同时结束测试</td>
+</tr>
+<tr>
+<td align="center">Errorf</td>
+<td>格式化打印错误日志，同时结束测试</td>
+</tr>
+<tr>
+<td align="center">Fatal</td>
+<td>打印致命日志，同时结束测试</td>
+</tr>
+<tr>
+<td align="center">Fatalf</td>
+<td>格式化打印致命日志，同时结束测试</td>
+</tr>
+</tbody></table>
+</center>
+
+<h3 id="基准测试-获得代码内存占用和运行效率的性能数据"><a href="#基准测试-获得代码内存占用和运行效率的性能数据" class="headerlink" title="基准测试-获得代码内存占用和运行效率的性能数据"></a>基准测试-获得代码内存占用和运行效率的性能数据</h3><p>基准测试可以测试一段程序的运行性能及耗费 CPU 的程度。Go 语言中提供了基准测试框架，使用方法类似于单元测试，使用者无须准备高精度的计时器和各种分析工具，基准测试本身即可以打印出非常标准的测试报告。</p>
+<h4 id="1-基准测试基本使用"><a href="#1-基准测试基本使用" class="headerlink" title="1) 基准测试基本使用"></a>1) 基准测试基本使用</h4><p>基准测试：</p>
+<pre><code class="go">import &quot;testing&quot;
+
+func Benchmark_Add(b *testing.B) &#123;
+    var n int
+    for i := 0; i &lt; b.N; i++ &#123;
+        n++
+    &#125;
+&#125;
+</code></pre>
+<p>这段代码使用基准测试框架测试加法性能。第 7 行中的 b.N 由基准测试框架提供。测试代码需要保证函数可重入性及无状态，也就是说，测试代码不使用全局变量等带有记忆性质的数据结构。避免多次运行同一段代码时的环境不一致，不能假设 N 值范围。</p>
+<p>使用如下命令行开启基准测试：</p>
+<pre><code class="bash">$ go test -v -bench=. src/gopl.io/ch2/testecho/benchmark_test.go
+goos: linux
+goarch: amd64
+cpu: AMD Ryzen 7 3700X 8-Core Processor
+Benchmark_Add
+Benchmark_Add-16        1000000000               0.2411 ns/op
+PASS
+ok      command-line-arguments  0.271s
+</code></pre>
+<p>代码说明：</p>
+<ul>
+<li><code>-bench=.</code>表示运行 benchmark_test.go 文件里的所有基准测试，和单元测试中的<code>-run</code>类似</li>
+<li>第 6 行中显示基准测试名称，1000000000 表示测试的次数，也就是 testing.B 结构中提供给程序使用的 <code>N</code>。“0.2411 ns&#x2F;op”表示每一个操作耗费多少时间（纳秒）。</li>
+</ul>
+<p>注意：Windows 下使用 go test 命令行时，<code>-bench=.</code>应写为<code>-bench=&quot;.&quot;</code>。</p>
+<h4 id="2-基准测试原理"><a href="#2-基准测试原理" class="headerlink" title="2) 基准测试原理"></a>2) 基准测试原理</h4><p>基准测试框架对一个测试用例的默认测试时间是 1 秒。开始测试时，当以 <code>Benchmark</code> 开头的基准测试用例函数返回时还不到 1 秒，那么 testing.B 中的 N 值将按 1、2、5、10、20、50……递增，同时以递增后的值重新调用基准测试用例函数。</p>
+<h4 id="3-自定义测试时间"><a href="#3-自定义测试时间" class="headerlink" title="3) 自定义测试时间"></a>3) 自定义测试时间</h4><p>通过<code>-benchtime</code>参数可以自定义测试时间，例如：</p>
+<pre><code class="bash">$ go test -v -bench=. -benchtime=5s  src/gopl.io/ch2/testecho/benchmark_test.go
+goos: linux
+goarch: amd64
+cpu: AMD Ryzen 7 3700X 8-Core Processor
+Benchmark_Add
+Benchmark_Add-16        1000000000               0.2409 ns/op
+PASS
+ok      command-line-arguments  0.271s
+</code></pre>
+<ul>
+<li>使用 <code>-benchtime=5s</code> 来设置每个基准测试函数的运行时间限制为 5 秒。这意味着基准测试工具会运行 Benchmark_Add 函数，直到满足 5 秒的条件，然后提供相应的性能测量结果。</li>
+</ul>
+<h4 id="4-测试内存"><a href="#4-测试内存" class="headerlink" title="4) 测试内存"></a>4) 测试内存</h4><p>基准测试可以对一段代码可能存在的内存分配进行统计，下面是一段使用字符串格式化的函数，内部会进行一些分配操作。</p>
+<pre><code class="go">func Benchmark_Alloc(b *testing.B) &#123;
+    for i := 0; i &lt; b.N; i++ &#123;
+        fmt.Sprintf(&quot;%d&quot;, i)
+    &#125;
+&#125;
+</code></pre>
+<p>在命令行中添加<code>-benchmem</code>参数以显示内存分配情况，参见下面的指令：</p>
+<pre><code class="bash">$ go test -v -bench=Alloc  -benchmem  src/gopl.io/ch2/testecho/benchmark_test.go
+goos: linux
+goarch: amd64
+cpu: AMD Ryzen 7 3700X 8-Core Processor
+Benchmark_Alloc
+Benchmark_Alloc-16      11972752        101.0 ns/op      16 B/op     1 allocs/op
+PASS
+ok      command-line-arguments  1.315s
+</code></pre>
+<ul>
+<li>“16 B&#x2F;op”表示每一次调用需要分配 16 个字节，“2 allocs&#x2F;op”表示每一次调用有两次分配。</li>
+</ul>
+<h4 id="5-控制计时器"><a href="#5-控制计时器" class="headerlink" title="5) 控制计时器"></a>5) 控制计时器</h4><p>有些测试需要一定的启动和初始化时间，如果从 Benchmark() 函数开始计时会很大程度上影响测试结果的精准性。testing.B 提供了一系列的方法可以方便地控制计时器，从而让计时器只在需要的区间进行测试。我们通过下面的代码来了解计时器的控制。</p>
+<pre><code class="go">func Benchmark_Add_TimerControl(b *testing.B) &#123;
+
+    // 重置计时器
+    b.ResetTimer()
+
+    // 停止计时器
+    b.StopTimer()
+
+    // 开始计时器
+    b.StartTimer()
+
+    var n int
+    for i := 0; i &lt; b.N; i++ &#123;
+        n++
+    &#125;
+&#125;
+</code></pre>
+<p>从 Benchmark() 函数开始，Timer 就开始计数。StopTimer() 可以停止这个计数过程，做一些耗时的操作，通过 StartTimer() 重新开始计时。ResetTimer() 可以重置计数器的数据。</p>
+<p>计数器内部不仅包含耗时数据，还包括内存分配的数据。</p>
+
+    </div>
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="waline-container"></div>
+    </div>
+    
+    
+    
+</div>
+
+                    <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 WorldPeace
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;XingHe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+                </div>
+            </transition>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+<script>
+    Waline.init({
+        el: "#waline-container",
+        serverURL: "https://my-blog-4448youd2-xinghe501.vercel.app/",
+        commentCount: true,
+        pageview: false,
+        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
+        meta: "nick,mail,link".split(","),
+        requiredMeta: "nick".split(","),
+        lang: "zh-CN",
+        wordLimit: 0,
+        pageSize: "10",
+        login: "enable",
+        
+        locale: {},
+        
+    });
+</script>
+
+
+
+        
+    </body>
+</html>

@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>v2ray的流量伪装 | WorldPeace</title>
+        <meta name="author" content="XingHe" />
+        <meta name="description" content="沉沦 坠落" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/favicon.png" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.staticfile.org/waline/2.14.8/waline.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline.min.css" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.8/waline-meta.min.css" />
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <div id="desktop-menu">
+        <a class="title" href="/">
+            <span>WORLDPEACE</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;WORLDPEACE</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </div>
+</nav>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <transition name="into">
+                <div id="main" v-show="!loading">
+                    <div class="article">
+    <div>
+        <h1>v2ray的流量伪装</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/26
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E6%95%99%E7%A8%8B/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                教程
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/V2Ray/" style="color: #ff7d73">V2Ray</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/AWS/" style="color: #00a596">AWS</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Cloudflare/" style="color: #03a9f4">Cloudflare</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Linux/" style="color: #00a596">Linux</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <span id="more"></span>
+
+<blockquote>
+<p>本文转载自：<a target="_blank" rel="noopener" href="https://v2xtls.org/v2ray%e9%ab%98%e7%ba%a7%e6%8a%80%e5%b7%a7%ef%bc%9a%e6%b5%81%e9%87%8f%e4%bc%aa%e8%a3%85/">v2ray 高级伪装</a> 如文中内容有错误请到原文查看</p>
+</blockquote>
+<h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><ol>
+<li><p>一台境外 vps 服务器，本文使用的是：<a target="_blank" rel="noopener" href="https://aws.amazon.com/">亚马逊</a></p>
+</li>
+<li><p>一个域名（国内域名可使用 cdn 加速，但是需要备案），本文使用的是：<a href="/2023/10/26/%E4%BD%BF%E7%94%A8namesilo%E8%B4%AD%E4%B9%B0%E5%9F%9F%E5%90%8D">Namesilo</a></p>
+</li>
+<li><p>为域名申请一个证书，参考<a href="/2023/10/26/%E4%BB%8E%E9%98%BF%E9%87%8C%E4%BA%91%E8%8E%B7%E5%8F%96%E5%85%8D%E8%B4%B9SSL%E8%AF%81%E4%B9%A6">从阿里云获取免费 SSL 证书</a></p>
+</li>
+<li><p>有基本 Linux 技巧，能使用 vim&#x2F;nano 等编辑器。</p>
+</li>
+</ol>
+<h2 id="流量伪装的配置步骤"><a href="#流量伪装的配置步骤" class="headerlink" title="流量伪装的配置步骤"></a>流量伪装的配置步骤</h2><ol>
+<li>演示域名: testweb.yuhuijie.buzz</li>
+<li>服务器: AWS Linux(CentOS)</li>
+<li>web 服务器软件: Nginx</li>
+</ol>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p>web+websocket+tls 组合，最终效果为：http&#x2F;https 方式打开域名，显示正常的网页；V2Ray 客户端请求特定的路径，例如<code>https://testweb.yuhuijie.buzz/awesomepath</code>，能科学上网；浏览器直接请求<code>https://testweb.yuhuijie.buzz/awesomepath</code>，返回”400 bad request”。即外部看起来完全是一个人畜无害的正规网站，特定手段请求特定网址才是科学上网的通道。</p>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><p>服务端涉及到了 Nginx 和 v2ray，分别介绍其配置。</p>
+<h2 id="1-配置-DNS"><a href="#1-配置-DNS" class="headerlink" title="1. 配置 DNS"></a>1. 配置 DNS</h2><p>设置 DNS 将域名正确解析到 vps 的 ip, 如<code>testweb.yuhuijie.buzz</code>解析到<code>xx.xxx.xxx.xxx</code></p>
+<p>文章参阅：<a href="/2023/10/26/%E4%BD%BF%E7%94%A8cloudflare%E4%B8%AD%E8%BD%AC%E6%B5%81%E9%87%8F">使用 Cloudflare 中转流量</a></p>
+<p>可以先关闭<code>cf</code>的中转代理，使用 <a target="_blank" rel="noopener" href="https://www.whatsmydns.net/">DNS 解析</a>查看域名是否正确指向自己服务器的 ip</p>
+<h2 id="2-配置-Nginx"><a href="#2-配置-Nginx" class="headerlink" title="2. 配置 Nginx"></a>2. 配置 Nginx</h2><p>如果你的域名并正确配置了 SSL 证书，可忽略这一步。</p>
+<p>Nginx 是市面上占有率最高的网站服务器软件，Centos 系统安装 nginx 命令：<code>yum install -y nginx</code>。</p>
+<p>Linux 系统上 Nginx 默认站点配置文件是<code>/etc/nginx/conf.d/</code>目录下的 <code>default.conf</code>，我们对伪装网站进行全站 https 配置，示例内容如下：</p>
+<pre><code class="ini">server &#123;
+    listen 80;
+    server_name xxxxx;  # 改成你的域名
+    rewrite ^(.*) https://$server_name$1 permanent;
+&#125;
+
+server &#123;
+    listen       443 ssl http2;
+    server_name xxxxx;
+    charset utf-8;
+
+    # ssl配置
+    ssl_protocols TLSv1.2 TLSv1.3; # tls 1.3要求nginx 1.13.0及以上版本
+    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
+    ssl_prefer_server_ciphers off;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 1d;
+    ssl_session_tickets off;
+    ssl_certificate xxxxx; # 改成你的证书地址
+    ssl_certificate_key xxxx; # 改成证书密钥文件地址
+
+    access_log  /var/log/nginx/xxxx.access.log;
+    error_log /var/log/nginx/xxx.error.log;
+
+    root /usr/share/nginx/html;
+    location / &#123;
+        index  index.html;
+    &#125;
+&#125;
+</code></pre>
+<p>配置好用 <code>nginx -t</code> 命令查看有无错误，没问题的话 <code>systemctl restart nginx</code> 启动 Nginx。打开浏览器在地址栏输入域名，应该能看到 https 访问的 Nginx 欢迎页。</p>
+<p>新域名如何快速做一个像模像样的网站？最简单的办法是从网上下载网站模板，上传到 web 服务器的根目录（默认是<code>/usr/share/nginx/html</code>）。对于伪装站来说，静态站足够。如果你的境外流量比较大，建议用爬虫或者其他手段做一个看起来受欢迎、流量大的站点，例如美食博客，图片站等。</p>
+<h2 id="3-安装配置-V2Ray"><a href="#3-安装配置-V2Ray" class="headerlink" title="3.安装配置 V2Ray"></a>3.安装配置 V2Ray</h2><p>详细过程可参考：<a href="/2023/05/05/v2ray">V2Ray 教程</a></p>
+<p>到此为止，Nginx 和 V2ray 应该都能各自独立正常工作。如果有一个出现问题，应该先解决再继续下面的操作。</p>
+<h2 id="4-Nginx-配置-websocket"><a href="#4-Nginx-配置-websocket" class="headerlink" title="4.Nginx 配置 websocket"></a>4.Nginx 配置 websocket</h2><p>接下来我们让 Nginx 和 v2ray 结合，完成服务端的配置。</p>
+<p>首先我们选择一个<strong style="color:red; font-size:120%">伪装路径</strong>，建议为二级或者较长的一级路径，例如<code>/abc/def</code> 或<code>/awesomepath</code>。</p>
+<p>配置 Nginx 将伪装路径的访问都转发到 <code>v2ray</code>。编辑<code>/etc/nginx/conf.d/default.conf</code> 的第二个 server 段，增加以下转发配置：</p>
+<pre><code class="ini">location /awesomepath &#123; # 与 V2Ray 配置中的 path 保持一致
+      proxy_redirect off;
+      proxy_pass http://127.0.0.1:12345; # 假设v2ray的监听地址是12345
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection &quot;upgrade&quot;;
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+&#125;
+</code></pre>
+<p>配置好后重启 Nginx：<code>systemctl restart nginx</code>。</p>
+<p>配置 v2ray 接受 Nginx 传来的数据。编辑 <code>/etc/v2ray/config.json</code> 文件，在“inbounds”中新增“streamSetting”配置，设置传输协议为“websocket”。配置好后 <code>config.json</code> 文件看起来是：</p>
+<pre><code class="ini">&#123;
+  &quot;log&quot;: &#123;
+    &quot;loglevel&quot;: &quot;warning&quot;,
+    &quot;access&quot;: &quot;/var/log/v2ray/access.log&quot;,
+    &quot;error&quot;: &quot;/var/log/v2ray/error.log&quot;
+   &#125;,
+  &quot;inbounds&quot;: [&#123;
+    &quot;port&quot;: 12345,
+    &quot;protocol&quot;: &quot;vmess&quot;,
+    &quot;settings&quot;: &#123;
+      &quot;clients&quot;: [
+        &#123;
+          &quot;id&quot;: &quot;xxxxx&quot;, # 可以使用/usr/bin/v2ray/v2ctl uuid生成
+          &quot;level&quot;: 1,
+          &quot;alterId&quot;: 0
+        &#125;
+      ]
+    &#125;,
+    &quot;streamSettings&quot;: &#123;     # 载体配置段，设置为websocket
+        &quot;network&quot;: &quot;ws&quot;,
+        &quot;wsSettings&quot;: &#123;
+          &quot;path&quot;: &quot;/awesomepath&quot;  # 与nginx中的路径保持一致
+        &#125;
+      &#125;,
+    &quot;listen&quot;: &quot;127.0.0.1&quot; # 出于安全考虑，建议只接受本地链接
+  &#125;],
+  &quot;outbounds&quot;: [&#123;
+    &quot;protocol&quot;: &quot;freedom&quot;,
+    &quot;settings&quot;: &#123;&#125;
+  &#125;,&#123;
+    &quot;protocol&quot;: &quot;blackhole&quot;,
+    &quot;settings&quot;: &#123;&#125;,
+    &quot;tag&quot;: &quot;blocked&quot;
+  &#125;],
+  &quot;routing&quot;: &#123;
+    &quot;rules&quot;: [
+      &#123;
+        &quot;type&quot;: &quot;field&quot;,
+        &quot;ip&quot;: [&quot;geoip:private&quot;],
+        &quot;outboundTag&quot;: &quot;blocked&quot;
+      &#125;
+    ]
+  &#125;
+&#125;
+</code></pre>
+<blockquote>
+<h2 id="注意-："><a href="#注意-：" class="headerlink" title="_注意_："></a>_注意_：</h2><ol>
+<li><p><em>json 文件不支持注释，上述配置中”#”号及后续内容都要删掉；</em></p>
+</li>
+<li><p><em>因为使用 tls 加密，强烈建议 alterId 改成 0，以节省 cpu 加快 v2ray 的速度</em></p>
+</li>
+</ol>
+</blockquote>
+<p>配置无误后，重启 v2ray 服务：<code>systemctl restart v2ray</code>。</p>
+<p>如何测试 nginx 与 v2ray 结合没有问题？打开浏览器，输入域名及其他路径，应该显示正常网页或者页面不存在，说明 Nginx 正常工作；输入域名加 v2ray 路径，例如<code>https://testweb.yuhuijie.buzz/awesomepath</code>，应该出现”Bad Request”，说明 Nginx 将流量转发给了 v2ray，并且 v2ray 收到了请求。</p>
+
+    </div>
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="waline-container"></div>
+    </div>
+    
+    
+    
+</div>
+
+                    <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 WorldPeace
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;XingHe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+                </div>
+            </transition>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+<script>
+    Waline.init({
+        el: "#waline-container",
+        serverURL: "https://my-blog-4448youd2-xinghe501.vercel.app/",
+        commentCount: true,
+        pageview: false,
+        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
+        meta: "nick,mail,link".split(","),
+        requiredMeta: "nick".split(","),
+        lang: "zh-CN",
+        wordLimit: 0,
+        pageSize: "10",
+        login: "enable",
+        
+        locale: {},
+        
+    });
+</script>
+
+
+
+        
+    </body>
+</html>
