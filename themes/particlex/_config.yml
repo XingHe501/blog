@@ -1,5 +1,5 @@
 # ParticleX Configuration
-# https://github.com/argvchs/hexo-theme-particlex
+# https://github.com/theme-particlex/hexo-theme-particlex
 
 # Avatar image
 avatar: /images/avatar.png
@@ -87,7 +87,7 @@ crypto:
 search:
     enable: false
 
-# Giscus
+# giscus
 # https://github.com/giscus/giscus
 giscus:
     enable: false
@@ -119,9 +119,9 @@ gitalk:
 # Waline
 # https://github.com/walinejs/waline
 waline:
-    enable: true
-    serverURL: https://my-blog-4448youd2-xinghe501.vercel.app/ # https://blog-xinghe-waline.netlify.app/.netlify/functions/comment # Waline server address url, you should set this to your own link
-    locale: {} # Locale: https://waline.js.org/guide/client/i18n.html#locale-option
+    enable: false
+    serverURL: # Waline server address url, you should set this to your own link
+    locale: # Locale: https://waline.js.org/guide/client/i18n.html#locale-option
     commentCount: true # If false, comment count will only be displayed in post page, not in home page
     pageview: false # Pageviews count, Note: You should not enable both `waline.pageview` and `leancloud_visitors`
     emoji: # Custom emoji
@@ -137,7 +137,7 @@ waline:
         - link
     requiredMeta: # Set required meta field, e.g.: [nick] | [nick, mail]
         - nick
-    lang: zh-CN # Language, available values: en-US, zh-CN, zh-TW, pt-BR, ru-RU, jp-JP
+    lang: # Language, available values: en-US, zh-CN, zh-TW, pt-BR, ru-RU, jp-JP
     wordLimit: 0 # Word limit, no limit when setting to 0
     login: enable # Whether enable login, can choose from 'enable', 'disable' and 'force'
     pageSize: 10 # Comment per page
@@ -149,4 +149,4 @@ twikoo:
     envID:
     region:
     path: location.pathname
-    lang: zh-CN
+    lang:

@@ -13,7 +13,7 @@ timezone: "Asia/Shanghai"
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://yuhuijie.top
+url: https://XingHe501.github.io/blog
 permalink: /:year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -109,6 +109,12 @@ theme: particlex
 #     repo: git@github.com:XingHe501/XingHe501.github.io.git
 #     branch: main
 #     message:
+  
+deploy:
+  type: git
+  repo: https://github.com/XingHe501/blog
+  # example, https://github.com/hexojs/hexojs.github.io
+  branch: gh-pages
 
 # 禁用年度月度归档
 archive_generator:

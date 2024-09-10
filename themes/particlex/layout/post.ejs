@@ -24,30 +24,28 @@
             <span class="icon">
                 <i class="fa-solid fa-tags fa-fw"></i>
             </span>
-            <% page.tags.data.forEach(tag => { %>
+            <% let prev; %>
+            <% page.tags.data.forEach((tag) => { %>
             <span class="tag">
                 <%
-                    const color = [
-                        "color: #ffa2c4",
-                        "color: #00bcd4",
-                        "color: #03a9f4",
-                        "color: #00a596",
-                        "color: #ff7d73",
-                    ];
-                    let id = Math.floor(Math.random() * color.length);
+                    const colors = theme.colors.filter((color) => color !== prev);
+                    let id = Math.floor(Math.random() * colors.length);
+                    prev = colors[id];
                 %>
-                <a href="<%- url_for(tag.path) %>" style="<%- color[id] %>"><%= tag.name %></a>
+                <a href="<%- url_for(tag.path) %>" style="color: <%- colors[id] %>">
+                    <%= tag.name %>
+                </a>
             </span>
             <% }); %>
         </span>
         <% } %>
     </div>
     <% if (theme.crypto.enable && typeof page.secret !== "undefined") { %>
-    <% const CryptoJS = crypto(); %>
+    <% const CryptoJS = getCryptoJS(); %>
     <input
         id="crypto"
-        :class="['input', cryptoClass]"
-        :disabled="cryptoStatus"
+        :class="['input', cryptoStatus]"
+        :disabled="cryptoStatus === 'success'"
         ref="crypto"
         placeholder="文章被加密，请输入密码"
         data-encrypted="<%- CryptoJS.AES.encrypt(page.content, page.secret).toString() %>"
@@ -55,7 +53,7 @@
         v-model="crypto"
     />
     <transition name="fade">
-        <div class="content" ref="content" v-show="cryptoStatus"></div>
+        <div class="content" ref="content" v-show="cryptoStatus === 'success'"></div>
     </transition>
     <% } else { %>
     <div class="content" v-pre>
